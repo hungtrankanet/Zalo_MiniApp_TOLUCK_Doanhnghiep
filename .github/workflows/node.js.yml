@@ -1,5 +1,4 @@
-name: 
-TOLUCK - Phòng Marketing Thuê Ngoài
+name: "TOLUCK - Phòng Marketing Thuê Ngoài"
 run-name: ${{ github.event_name == 'schedule' && '✨ Refresh token' || '🚀 Deploy' }}
 
 concurrency: zalo-mini-app
