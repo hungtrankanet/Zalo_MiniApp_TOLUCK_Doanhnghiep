@@ -9,11 +9,27 @@
   color: var(--white);
 }
 
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
 .footer-title {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 900;
-  margin-bottom: 3px;
   color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+.footer-tagline {
+  font-size: 9px;
+  font-weight: 800;
+  color: #34d399;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
 .footer-desc {

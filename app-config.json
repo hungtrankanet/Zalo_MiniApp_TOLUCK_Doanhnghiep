@@ -1,8 +1,8 @@
 {
   "app": {
-    "title": "TOLUCK - Phòng Marketing Thuê Ngoài",
-    "headerTitle": "TOLUCK Doanh Nghiệp",
-    "headerColor": "#1843EF",
+    "title": "TOLUCK - Technology × Marketing × Growth",
+    "headerTitle": "TOLUCK SAAS",
+    "headerColor": "#071B15",
     "textColor": "white",
     "statusBar": "normal",
     "actionBarHidden": false,
@@ -17,6 +17,6 @@
   "listAsyncJS": [],
   "template": {
     "name": "toluck-zmp-enterprise",
-    "primaryColor": "#1843EF"
+    "primaryColor": "#18A558"
   }
 }

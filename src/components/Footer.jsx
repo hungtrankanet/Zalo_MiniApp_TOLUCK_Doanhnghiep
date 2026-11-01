@@ -2,7 +2,7 @@ import React from "react";
 import { CONTACT_INFO } from "../config/api";
 
 /**
- * Footer & Bottom Navigation Component
+ * Footer & Bottom Navigation Component - Exactly matching backend _footer.php
  * Strict rule: <= 500 lines
  */
 export default function Footer({ activeTab, onTabChange }) {
@@ -18,9 +18,13 @@ export default function Footer({ activeTab, onTabChange }) {
     <>
       <footer className="footer-wrap">
         <div className="footer-brand-box">
-          <div className="footer-title">{CONTACT_INFO.brandName} 2026</div>
+          <div className="footer-brand-header">
+            <div className="toluck-brand-badge small">T</div>
+            <span className="footer-title">{CONTACT_INFO.brandName}</span>
+          </div>
+          <div className="footer-tagline">{CONTACT_INFO.tagline}</div>
           <p className="footer-desc">
-            Phòng Marketing &amp; Công Nghệ Thuê Ngoài hàng đầu cho doanh nghiệp SME.
+            {CONTACT_INFO.positioning} • Kiến tạo nền tảng công nghệ vững chắc song hành cùng giải pháp tiếp thị đa kênh tăng trưởng doanh thu vượt bậc.
           </p>
           <div className="footer-tags">
             <span>CodeIgniter 4 Engine</span>
@@ -32,6 +36,7 @@ export default function Footer({ activeTab, onTabChange }) {
 
         <div className="footer-bottom-info">
           <div>© 2026 TOLUCK. All rights reserved.</div>
+          <div>{CONTACT_INFO.address}</div>
           <div>Bàn giao 100% bản quyền mã nguồn &amp; thiết kế.</div>
         </div>
       </footer>

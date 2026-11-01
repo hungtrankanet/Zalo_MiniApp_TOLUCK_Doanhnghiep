@@ -66,35 +66,53 @@ body {
   margin-bottom: 14px;
 }
 
-.brand-logo-wrap {
+.toluck-brand-logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.brand-logo-img {
+.toluck-brand-badge {
   width: 36px;
   height: 36px;
-  object-fit: contain;
-  border-radius: var(--radius-sm);
-  background: var(--white);
-  padding: 2px;
-  box-shadow: var(--shadow-sm);
-}
-
-.brand-badge {
-  font-size: 13px;
+  background: linear-gradient(135deg, #18A558, #1261A0);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
   font-weight: 900;
-  color: var(--primary-emerald);
-  letter-spacing: 0.5px;
-  display: block;
-  line-height: 1.2;
+  font-size: 19px;
+  box-shadow: 0 3px 10px rgba(24, 165, 88, 0.25);
+  flex-shrink: 0;
 }
 
-.brand-sub {
-  font-size: 11px;
-  color: var(--slate-600);
-  font-weight: 600;
+.toluck-brand-badge.small {
+  width: 28px;
+  height: 28px;
+  font-size: 15px;
+  border-radius: 7px;
+}
+
+.toluck-brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.toluck-brand-text {
+  font-size: 18px;
+  font-weight: 900;
+  color: #071B15;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.toluck-brand-tagline {
+  font-size: 9px;
+  font-weight: 800;
+  color: #18A558;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .status-indicator {
