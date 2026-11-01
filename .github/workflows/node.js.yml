@@ -85,6 +85,8 @@ jobs:
         run: npx zmp-developer-token deploy ${{ matrix.mini-app-id }}
         env:
           NEW_ACCESS_TOKEN: ${{ env.NEW_ACCESS_TOKEN }}
+          ZMP_ACCESS_TOKEN: ${{ env.NEW_ACCESS_TOKEN }}
+
       - name: Update Rotating Refresh Token
         if: ${{ env.NEW_REFRESH_TOKEN != '' }}
         uses: hmanzur/actions-set-secret@v2.0.0
