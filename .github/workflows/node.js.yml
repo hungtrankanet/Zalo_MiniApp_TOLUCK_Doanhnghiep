@@ -61,6 +61,11 @@ jobs:
       - run: npm install -g zmp-cli
       - name: Authenticate Zalo Developer
         run: |
+          if [ -n "${{ secrets.ZMP_TOKEN }}" ]; then
+            echo "Direct ZMP_TOKEN secret detected. Deploying directly without intermediate login."
+            echo "ZMP_TOKEN=${{ secrets.ZMP_TOKEN }}" >> $GITHUB_ENV
+            exit 0
+          fi
           LOGIN_SUCCESS=0
           if [ -n "${{ secrets.ZALO_APP_ID }}" ] && [ -n "${{ secrets.ZALO_APP_SECRET }}" ] && [ -n "${{ secrets.ZALO_REFRESH_TOKEN }}" ]; then
             echo "Requesting fresh Access Token from Zalo Developer credentials..."
@@ -76,17 +81,23 @@ jobs:
               echo "Using static ZALO_ACCESS_TOKEN secret as fallback..."
               echo "NEW_ACCESS_TOKEN=${{ secrets.ZALO_ACCESS_TOKEN }}" >> $GITHUB_ENV
             else
-              echo "::error::Không thể xác thực Zalo Developer! Vui lòng kiểm tra ZALO_APP_ID, ZALO_APP_SECRET, ZALO_REFRESH_TOKEN hoặc cung cấp ZALO_ACCESS_TOKEN hợp lệ trong GitHub Secrets."
+              echo "::error::Không thể xác thực Zalo Developer! Vui lòng cung cấp ZMP_TOKEN hoặc ZALO_REFRESH_TOKEN trong GitHub Secrets."
               exit 1
             fi
           fi
 
       - name: Deploy Mini App
         run: |
-          echo "Logging in to ZMP CLI using native arguments..."
-          zmp login --app-id ${{ matrix.mini-app-id }} --token "${{ env.NEW_ACCESS_TOKEN }}"
+          if [ -n "${{ env.ZMP_TOKEN }}" ]; then
+            echo "Using direct ZMP_TOKEN for deployment authentication..."
+            export ZMP_TOKEN="${{ env.ZMP_TOKEN }}"
+          elif [ -n "${{ env.NEW_ACCESS_TOKEN }}" ]; then
+            echo "Logging in to ZMP CLI using Access Token..."
+            zmp login --app-id ${{ matrix.mini-app-id }} --token "${{ env.NEW_ACCESS_TOKEN }}"
+          fi
           echo "Deploying testing version to Zalo Mini App platform..."
           zmp deploy -ptm "$(git log -1 --pretty=%B)"
+
 
 
       - name: Update Rotating Refresh Token
