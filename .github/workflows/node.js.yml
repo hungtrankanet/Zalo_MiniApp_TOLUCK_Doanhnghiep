@@ -88,15 +88,25 @@ jobs:
 
       - name: Deploy Mini App
         run: |
-          if [ -n "${{ env.ZMP_TOKEN }}" ]; then
-            echo "Using direct ZMP_TOKEN for deployment authentication..."
-            export ZMP_TOKEN="${{ env.ZMP_TOKEN }}"
-          elif [ -n "${{ env.NEW_ACCESS_TOKEN }}" ]; then
-            echo "Logging in to ZMP CLI using Access Token..."
-            zmp login --app-id ${{ matrix.mini-app-id }} --token "${{ env.NEW_ACCESS_TOKEN }}"
+          echo "Preparing .env configuration for zmp-cli..."
+          echo "APP_ID=${{ matrix.mini-app-id }}" > .env
+          if [ -n "${{ secrets.ZMP_TOKEN }}" ]; then
+            echo "ZMP_TOKEN=${{ secrets.ZMP_TOKEN }}" >> .env
+          elif [ -n "${{ env.ZMP_TOKEN }}" ]; then
+            echo "ZMP_TOKEN=${{ env.ZMP_TOKEN }}" >> .env
           fi
-          echo "Deploying testing version to Zalo Mini App platform..."
-          zmp deploy -ptm "$(git log -1 --pretty=%B)"
+
+          if [ -n "${{ env.NEW_ACCESS_TOKEN }}" ] && ! grep -q "ZMP_TOKEN" .env; then
+            echo "Logging in to ZMP CLI using Access Token..."
+            zmp-cli login --app-id ${{ matrix.mini-app-id }} --token "${{ env.NEW_ACCESS_TOKEN }}"
+          fi
+
+          export APP_ID="${{ matrix.mini-app-id }}"
+          export ZMP_TOKEN=$(grep "ZMP_TOKEN=" .env | cut -d '=' -f2-)
+
+          echo "Deploying testing version to Zalo Mini App platform via zmp-cli..."
+          zmp-cli deploy -ptm "$(git log -1 --pretty=%B)"
+
 
 
 
