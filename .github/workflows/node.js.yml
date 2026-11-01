@@ -95,6 +95,15 @@ jobs:
           value: ${{ env.NEW_REFRESH_TOKEN }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
+      - name: Update Access Token
+        if: ${{ env.NEW_ACCESS_TOKEN != '' }}
+        uses: hmanzur/actions-set-secret@v2.0.0
+        with:
+          name: "ZALO_ACCESS_TOKEN"
+          value: ${{ env.NEW_ACCESS_TOKEN }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+
       - name: Report
         run: |
           echo "### Deployment success! :rocket:" >> $GITHUB_STEP_SUMMARY

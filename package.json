@@ -1,7 +1,7 @@
 {
   "name": "toluck-zalo-mini-app",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TOLUCK - Phòng Marketing Thuê Ngoài (Zalo Mini App)",
   "scripts": {
     "start": "vite",
