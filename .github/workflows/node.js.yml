@@ -76,12 +76,13 @@ jobs:
         env:
           NEW_ACCESS_TOKEN: ${{ env.NEW_ACCESS_TOKEN }}
       - name: Update Rotating Refresh Token
-        if: ${{ env.NEW_REFRESH_TOKEN != '' && secrets.REPO_ACCESS_TOKEN != '' }}
+        if: ${{ env.NEW_REFRESH_TOKEN != '' }}
         uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: "ZALO_REFRESH_TOKEN"
           value: ${{ env.NEW_REFRESH_TOKEN }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
       - name: Report
         run: |
           echo "### Deployment success! :rocket:" >> $GITHUB_STEP_SUMMARY
