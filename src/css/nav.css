@@ -106,3 +106,26 @@
   font-size: 9px;
   font-weight: 700;
 }
+
+.footer-terms-row {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  text-align: center;
+}
+
+.btn-footer-terms {
+  background: none;
+  border: none;
+  color: #34d399;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: opacity 0.15s ease;
+}
+
+.btn-footer-terms:active {
+  opacity: 0.7;
+}

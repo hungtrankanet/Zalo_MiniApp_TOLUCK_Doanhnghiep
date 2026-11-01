@@ -422,3 +422,34 @@
   font-weight: 800;
   cursor: pointer;
 }
+
+/* Terms Modal Specific */
+.terms-modal-content {
+  max-height: 88vh;
+}
+.terms-body-scroll {
+  max-height: 55vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.terms-sec {
+  margin-bottom: 14px;
+}
+.terms-h4 {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--slate-900);
+  margin-bottom: 4px;
+}
+.terms-p {
+  font-size: 11px;
+  color: var(--slate-600);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+.terms-ul {
+  padding-left: 18px;
+  font-size: 11px;
+  color: var(--slate-600);
+  line-height: 1.5;
+}

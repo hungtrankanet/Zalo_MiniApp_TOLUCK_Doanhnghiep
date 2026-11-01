@@ -5,7 +5,7 @@ import { CONTACT_INFO } from "../config/api";
  * Footer & Bottom Navigation Component - Exactly matching backend _footer.php
  * Strict rule: <= 500 lines
  */
-export default function Footer({ activeTab, onTabChange }) {
+export default function Footer({ activeTab, onTabChange, onOpenTerms }) {
   const tabs = [
     { id: "home", label: "Tổng Quan", icon: "🏠" },
     { id: "services", label: "Dịch Vụ", icon: "💼" },
@@ -37,7 +37,15 @@ export default function Footer({ activeTab, onTabChange }) {
         <div className="footer-bottom-info">
           <div>© 2026 TOLUCK. All rights reserved.</div>
           <div>{CONTACT_INFO.address}</div>
-          <div>Bàn giao 100% bản quyền mã nguồn &amp; thiết kế.</div>
+          <div className="footer-terms-row">
+            <button
+              type="button"
+              className="btn-footer-terms"
+              onClick={onOpenTerms}
+            >
+              📜 Điều khoản sử dụng &amp; Bảo mật
+            </button>
+          </div>
         </div>
       </footer>
 

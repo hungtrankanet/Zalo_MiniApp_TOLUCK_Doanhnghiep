@@ -4,6 +4,7 @@ import ServicesSection from "./components/ServicesSection";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import NewsSection from "./components/NewsSection";
 import ContactSection from "./components/ContactSection";
+import TermsModal from "./components/TermsModal";
 import Footer from "./components/Footer";
 
 /**
@@ -14,6 +15,7 @@ import Footer from "./components/Footer";
 export default function App() {
   const [activeTab, setActiveTab] = useState("home");
   const [selectedService, setSelectedService] = useState("");
+  const [showTerms, setShowTerms] = useState(false);
   const formRef = useRef(null);
 
   const handleConsultClick = () => {
@@ -71,7 +73,17 @@ export default function App() {
       </main>
 
       {/* Footer and Bottom Nav */}
-      <Footer activeTab={activeTab} onTabChange={setActiveTab} />
+      <Footer
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        onOpenTerms={() => setShowTerms(true)}
+      />
+
+      {/* Terms of Use Modal */}
+      <TermsModal
+        isOpen={showTerms}
+        onClose={() => setShowTerms(false)}
+      />
     </div>
   );
 }
