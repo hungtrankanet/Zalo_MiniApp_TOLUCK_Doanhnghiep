@@ -1,0 +1,22 @@
+{
+  "app": {
+    "title": "TOLUCK - Phòng Marketing Thuê Ngoài",
+    "headerTitle": "TOLUCK Doanh Nghiệp",
+    "headerColor": "#1843EF",
+    "textColor": "white",
+    "statusBar": "normal",
+    "actionBarHidden": false,
+    "leftButton": "none",
+    "selfControlLoading": false,
+    "hideAndroidBottomNavigationBar": false,
+    "hideIOSSafeAreaBottom": false
+  },
+  "pages": [],
+  "listCSS": [],
+  "listSyncJS": [],
+  "listAsyncJS": [],
+  "template": {
+    "name": "toluck-zmp-enterprise",
+    "primaryColor": "#1843EF"
+  }
+}
