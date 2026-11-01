@@ -61,16 +61,26 @@ jobs:
       - run: npm install -g zmp-cli
       - name: Authenticate Zalo Developer
         run: |
+          LOGIN_SUCCESS=0
           if [ -n "${{ secrets.ZALO_APP_ID }}" ] && [ -n "${{ secrets.ZALO_APP_SECRET }}" ] && [ -n "${{ secrets.ZALO_REFRESH_TOKEN }}" ]; then
             echo "Requesting fresh Access Token from Zalo Developer credentials..."
-            npx zmp-developer-token login ${{ secrets.ZALO_APP_ID }} ${{ secrets.ZALO_APP_SECRET }} ${{ secrets.ZALO_REFRESH_TOKEN }} >> $GITHUB_ENV
-          elif [ -n "${{ secrets.ZALO_ACCESS_TOKEN }}" ]; then
-            echo "Using static ZALO_ACCESS_TOKEN secret..."
-            echo "NEW_ACCESS_TOKEN=${{ secrets.ZALO_ACCESS_TOKEN }}" >> $GITHUB_ENV
-          else
-            echo "::error::Chưa tìm thấy thông tin xác thực Zalo Developer trong GitHub Secrets! Vui lòng cấu hình ZALO_APP_ID, ZALO_APP_SECRET, ZALO_REFRESH_TOKEN (hoặc ZALO_ACCESS_TOKEN) trong Settings > Secrets and variables > Actions."
-            exit 1
+            if npx zmp-developer-token login ${{ secrets.ZALO_APP_ID }} ${{ secrets.ZALO_APP_SECRET }} ${{ secrets.ZALO_REFRESH_TOKEN }} >> $GITHUB_ENV; then
+              echo "Token refresh successful!"
+              LOGIN_SUCCESS=1
+            else
+              echo "::warning::ZALO_REFRESH_TOKEN không hợp lệ hoặc đã hết hạn/đã sử dụng."
+            fi
           fi
+          if [ $LOGIN_SUCCESS -eq 0 ]; then
+            if [ -n "${{ secrets.ZALO_ACCESS_TOKEN }}" ]; then
+              echo "Using static ZALO_ACCESS_TOKEN secret as fallback..."
+              echo "NEW_ACCESS_TOKEN=${{ secrets.ZALO_ACCESS_TOKEN }}" >> $GITHUB_ENV
+            else
+              echo "::error::Không thể xác thực Zalo Developer! Vui lòng kiểm tra ZALO_APP_ID, ZALO_APP_SECRET, ZALO_REFRESH_TOKEN hoặc cung cấp ZALO_ACCESS_TOKEN hợp lệ trong GitHub Secrets."
+              exit 1
+            fi
+          fi
+
       - name: Deploy Mini App
         run: npx zmp-developer-token deploy ${{ matrix.mini-app-id }}
         env:
