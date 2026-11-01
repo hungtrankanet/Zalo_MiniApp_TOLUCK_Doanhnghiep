@@ -1,0 +1,424 @@
+/* ==========================================================================
+   TOLUCK SAAS 2026 - Zalo Mini App Components (News, Contact, Modal)
+   Strict rule: <= 500 lines
+   ========================================================================== */
+
+/* News List */
+.news-loading {
+  text-align: center;
+  padding: 16px;
+  font-size: 11px;
+  color: var(--slate-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--slate-200);
+  border-top-color: var(--primary-emerald);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.news-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.news-card {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.news-card:active {
+  transform: scale(0.99);
+}
+
+.news-thumb-box {
+  width: 100%;
+  height: 130px;
+  background: var(--slate-100);
+  position: relative;
+  overflow: hidden;
+}
+
+.news-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-cat-pill {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  color: var(--white);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.news-body {
+  padding: 12px;
+}
+
+.news-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--slate-900);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.news-summary {
+  font-size: 11px;
+  color: var(--slate-600);
+  line-height: 1.45;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--slate-400);
+  border-top: 1px solid var(--slate-100);
+  padding-top: 6px;
+}
+
+/* Reader Modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+}
+
+.modal-content {
+  background: var(--white);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 18px 16px 24px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-cat-tag {
+  background: var(--primary-emerald-light);
+  color: var(--primary-emerald);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.btn-modal-close {
+  background: var(--slate-100);
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--slate-600);
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.35;
+  color: var(--slate-900);
+  margin-bottom: 6px;
+}
+
+.modal-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--slate-400);
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--slate-100);
+  padding-bottom: 8px;
+}
+
+.modal-lead-summary {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--slate-800);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.modal-rich-text {
+  font-size: 12px;
+  color: var(--slate-600);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.modal-notice {
+  font-size: 11px;
+  color: var(--slate-400);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.btn-view-web {
+  flex: 2;
+  text-align: center;
+  background: var(--tech-blue);
+  color: var(--white);
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.btn-close-modal {
+  flex: 1;
+  background: var(--slate-100);
+  border: none;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate-600);
+  cursor: pointer;
+}
+
+/* Contact Channels */
+.contact-cards-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.contact-item-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+}
+
+.contact-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.contact-info-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-label {
+  font-size: 9px;
+  color: var(--slate-400);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.contact-val {
+  font-size: 11px;
+  color: var(--slate-900);
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.font-bold { font-weight: 800; }
+
+.quick-actions-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.action-btn {
+  text-align: center;
+  padding: 9px 6px;
+  border-radius: var(--radius-md);
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-call { background: var(--tech-blue-light); color: var(--tech-blue); border: 1px solid #bfdbfe; }
+.action-zalo { background: var(--primary-emerald-light); color: var(--primary-emerald); border: 1px solid #a7f3d0; }
+.action-email { background: var(--slate-100); color: var(--slate-800); border: 1px solid var(--slate-200); }
+
+/* Consultation Form */
+.consult-form-box {
+  background: var(--white);
+  border: 1.5px solid var(--slate-200);
+  border-radius: var(--radius-xl);
+  padding: 18px 14px;
+  box-shadow: var(--shadow-md);
+}
+
+.form-head {
+  margin-bottom: 12px;
+}
+
+.form-head-title {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--slate-900);
+  margin-bottom: 3px;
+}
+
+.form-head-sub {
+  font-size: 11px;
+  color: var(--slate-600);
+}
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.input-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate-800);
+}
+
+.input-field {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1.5px solid var(--slate-200);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  background: var(--slate-50);
+}
+
+.input-field:focus {
+  border-color: var(--primary-emerald);
+  background: var(--white);
+}
+
+.textarea-field {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.btn-submit-consult {
+  width: 100%;
+  background: var(--primary-emerald);
+  color: var(--white);
+  border: none;
+  padding: 11px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 6px;
+  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.btn-submit-consult:active {
+  transform: scale(0.98);
+}
+
+.form-success-alert {
+  text-align: center;
+  padding: 20px 10px;
+  background: var(--primary-emerald-light);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid #86efac;
+}
+
+.success-icon { font-size: 28px; margin-bottom: 4px; }
+.success-title { font-size: 15px; font-weight: 900; color: #166534; margin-bottom: 4px; }
+.success-msg { font-size: 11px; color: #166534; line-height: 1.5; margin-bottom: 12px; }
+
+.btn-send-another {
+  background: var(--white);
+  color: var(--primary-emerald);
+  border: 1.5px solid var(--primary-emerald);
+  padding: 7px 14px;
+  border-radius: var(--radius-md);
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
