@@ -82,10 +82,12 @@ jobs:
           fi
 
       - name: Deploy Mini App
-        run: npx zmp-developer-token deploy ${{ matrix.mini-app-id }}
-        env:
-          NEW_ACCESS_TOKEN: ${{ env.NEW_ACCESS_TOKEN }}
-          ZMP_ACCESS_TOKEN: ${{ env.NEW_ACCESS_TOKEN }}
+        run: |
+          echo "Logging in to ZMP CLI using native arguments..."
+          zmp login --app-id ${{ matrix.mini-app-id }} --token "${{ env.NEW_ACCESS_TOKEN }}"
+          echo "Deploying testing version to Zalo Mini App platform..."
+          zmp deploy -ptm "$(git log -1 --pretty=%B)"
+
 
       - name: Update Rotating Refresh Token
         if: ${{ env.NEW_REFRESH_TOKEN != '' }}
