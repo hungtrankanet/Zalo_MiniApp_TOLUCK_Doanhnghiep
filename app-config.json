@@ -1,13 +1,13 @@
 {
   "app": {
-    "title": "TOLUCK - Technology × Marketing × Growth",
-    "headerTitle": "TOLUCK SAAS",
+    "title": "TOLUCK - Marketing & Công Nghệ",
+    "headerTitle": "TOLUCK",
     "headerColor": "#071B15",
     "textColor": "white",
     "statusBar": "normal",
     "actionBarHidden": false,
-    "leftButton": "none",
-    "selfControlLoading": false,
+    "leftButton": "back",
+    "selfControlLoading": true,
     "hideAndroidBottomNavigationBar": false,
     "hideIOSSafeAreaBottom": false
   },
