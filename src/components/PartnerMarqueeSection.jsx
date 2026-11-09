@@ -16,21 +16,26 @@ export default function PartnerMarqueeSection({ onNavigateTab }) {
     fetchPartnerLogos().then((backendLogos) => {
       if (!isMounted || !Array.isArray(backendLogos) || backendLogos.length === 0) return;
 
-      setPartners((prev) => {
-        const updated = [...prev];
-        backendLogos.forEach((beLogo) => {
-          const beTitle = (beLogo.title || "").toLowerCase();
-          for (let i = 0; i < updated.length; i++) {
-            const pName = updated[i].name.toLowerCase();
-            const pShort = (updated[i].shortName || "").toLowerCase();
-            if (beTitle.includes(pShort) || pName.includes(beTitle)) {
-              updated[i] = { ...updated[i], image_url: beLogo.image_url };
-              break;
-            }
-          }
-        });
-        return updated;
-      });
+      const normalized = backendLogos.map((item) => ({
+        ...item,
+        id: item.id || `p-${Math.random()}`,
+        name: item.name || item.title || "Đối Tác",
+        shortName: item.short_name || item.shortName || item.title || item.name,
+        category: item.category || "Đối Tác & Khách Hàng",
+        type: item.type || "client",
+        typeLabel: item.type_label || item.typeLabel || "Khách Hàng Doanh Nghiệp",
+        image_url: item.image_url,
+        isPortalClient: !!(item.is_portal || item.isPortalClient),
+        portalUrl: item.portal_url || item.portalUrl,
+        logoColor: item.logo_color || item.logoColor || "#059669",
+        accentBg: item.accentBg || "rgba(5, 150, 105, 0.08)",
+        highlight: item.highlight || "Thương Hiệu Đồng Hành",
+        desc: item.desc || "Đối tác đồng hành cùng TOLUCK.",
+        collaboration: item.collaboration || "Hợp tác phát triển giải pháp.",
+        year: item.year || "2024 - 2026",
+      }));
+
+      setPartners(normalized);
     });
 
     return () => {

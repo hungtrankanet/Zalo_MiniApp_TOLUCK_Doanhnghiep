@@ -19,50 +19,27 @@ export default function CommunityTab({ onNavigateTab }) {
     fetchPartnerLogos().then((backendLogos) => {
       if (!isMounted || !Array.isArray(backendLogos) || backendLogos.length === 0) return;
 
-      // Merge backend logos into partnersList
-      setPartnersList((prevList) => {
-        const updated = [...prevList];
-        const matchedTitles = new Set();
+      const normalized = backendLogos.map((item) => ({
+        ...item,
+        id: item.id || `p-${Math.random()}`,
+        name: item.name || item.title || "Đối Tác",
+        shortName: item.short_name || item.shortName || item.title || item.name,
+        category: item.category || "Đối Tác & Khách Hàng",
+        type: item.type || "client",
+        typeLabel: item.type_label || item.typeLabel || "Khách Hàng Doanh Nghiệp",
+        image_url: item.image_url,
+        isPortalClient: !!(item.is_portal || item.isPortalClient),
+        portalUrl: item.portal_url || item.portalUrl,
+        logoColor: item.logo_color || item.logoColor || "#059669",
+        accentBg: item.accentBg || "rgba(5, 150, 105, 0.08)",
+        highlight: item.highlight || "Thương Hiệu Đồng Hành",
+        desc: item.desc || "Đối tác & khách hàng trong hệ sinh thái tăng trưởng doanh nghiệp TOLUCK.",
+        collaboration: item.collaboration || "Hợp tác phát triển giải pháp tiếp thị và ứng dụng công nghệ số.",
+        year: item.year || "2024 - 2026",
+        badge: item.badge || "Đối Tác Xác Thực",
+      }));
 
-        backendLogos.forEach((beLogo) => {
-          const beTitle = (beLogo.title || "").toLowerCase().trim();
-          let matched = false;
-
-          for (let i = 0; i < updated.length; i++) {
-            const pName = updated[i].name.toLowerCase();
-            const pShort = (updated[i].shortName || "").toLowerCase();
-            if (beTitle.includes(pShort) || pName.includes(beTitle) || beTitle.includes(updated[i].id)) {
-              updated[i] = { ...updated[i], image_url: beLogo.image_url };
-              matched = true;
-              matchedTitles.add(beLogo.id);
-              break;
-            }
-          }
-
-          if (!matched) {
-            // New partner logo uploaded directly from backend admin
-            updated.push({
-              id: `be-${beLogo.id}`,
-              name: beLogo.title || "Đối Tác Doanh Nghiệp",
-              shortName: beLogo.title || "Đối Tác",
-              category: "Doanh Nghiệp & Thương Hiệu",
-              type: "client",
-              typeLabel: "Khách Hàng Doanh Nghiệp",
-              logoColor: "#059669",
-              accentBg: "rgba(5, 150, 105, 0.08)",
-              highlight: "Thương Hiệu Đồng Hành",
-              desc: "Đối tác & khách hàng trong hệ sinh thái tăng trưởng doanh nghiệp TOLUCK.",
-              collaboration: "Hợp tác phát triển giải pháp tiếp thị và ứng dụng công nghệ số.",
-              year: "2024 - 2026",
-              badge: "Đối Tác Xác Thực",
-              isPortalClient: false,
-              image_url: beLogo.image_url,
-            });
-          }
-        });
-
-        return updated;
-      });
+      setPartnersList(normalized);
     });
 
     return () => {

@@ -210,6 +210,26 @@ export async function fetchTestimonials() {
   }
 }
 
+export async function fetchSiteSettings() {
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 4000);
+    const response = await fetch(ENDPOINTS.settings, {
+      signal: controller.signal,
+      headers: { Accept: "application/json" },
+    });
+    clearTimeout(timeoutId);
+    if (!response.ok) throw new Error("HTTP error " + response.status);
+    const json = await response.json();
+    if (json.success && json.data) {
+      return json.data;
+    }
+    return null;
+  } catch (err) {
+    return null;
+  }
+}
+
 export async function fetchPartnerLogos() {
   try {
     const controller = new AbortController();

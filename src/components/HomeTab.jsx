@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { fetchSiteSettings, API_BASE_URL } from "../config/api";
 import PartnerMarqueeSection from "./PartnerMarqueeSection";
 import CoreServicesSection from "./CoreServicesSection";
 import TargetAudienceSection from "./TargetAudienceSection";
@@ -9,17 +10,24 @@ import TrendsSection from "./TrendsSection";
 
 /**
  * HomeTab Component - Tái Cấu Trúc UI/UX Pro Theo 8 Section Chuẩn Chuyển Đổi
- * 1. Hero Banner (kèm 2-3 hình ảnh trực quan & chỉ số bảo chứng phía dưới)
- * 2. Section Logo đối tác & khách hàng (Nằm ngang slide qua 2 dòng)
- * 3. Section Dịch vụ chính (3 dịch vụ chính)
- * 4. Section Đối tượng khách hàng tiềm năng
- * 5. Section Quy trình thực hiện dự án
- * 6. Section Dự án thực tế
- * 7. Section Khách hàng nói gì về chúng tôi
- * 8. Section Góc chia sẻ
+ * Logo lấy từ Backend, thông điệp tinh gọn chuẩn B2B
  * Strict rule: <= 500 lines
  */
 export default function HomeTab({ onNavigateTab }) {
+  const [backendLogo, setBackendLogo] = useState(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetchSiteSettings().then((res) => {
+      if (isMounted && res && res.site_logo) {
+        setBackendLogo(res.site_logo);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const heroMockupImages = [
     { src: "./hero_banner.jpg", label: "Phòng Marketing & IT Thuê Ngoài" },
     { src: "./about_banner.jpg", label: "Hạ Tầng Công Nghệ & Tự Động Hóa" },
@@ -28,11 +36,11 @@ export default function HomeTab({ onNavigateTab }) {
 
   return (
     <div className="tab-page home-tab">
-      {/* 0. Top Brand Bar với Logo TOLUCK */}
+      {/* 0. Top Brand Bar với Logo TOLUCK lấy từ Backend */}
       <header className="home-top-bar">
         <div className="home-brand">
           <img
-            src="./logo.svg"
+            src={backendLogo || `${API_BASE_URL}/assets/themes/suntransco/logo.png`}
             alt="TOLUCK"
             className="home-brand-logo"
             onError={(e) => {
@@ -41,21 +49,13 @@ export default function HomeTab({ onNavigateTab }) {
           />
           <div className="home-brand-meta">
             <span className="home-brand-name">TOLUCK</span>
-            <span className="home-brand-tagline">Marketing &amp; Công Nghệ Số</span>
+            <span className="home-brand-sub">Phòng Marketing &amp; Công nghệ thuê ngoài</span>
           </div>
-        </div>
-        <div className="home-brand-badge">
-          <span className="pulse-dot" />
-          <span>Doanh Nghiệp 2026</span>
         </div>
       </header>
 
-      {/* 1. Hero Header Banner */}
+      {/* 1. Hero Header Banner (Đã bỏ badge theo yêu cầu) */}
       <section className="hero-banner">
-        <div className="hero-badge">
-          <span className="pulse-dot" />
-          <span>GIẢI PHÁP TĂNG TRƯỞNG DOANH NGHIỆP 2026</span>
-        </div>
         <h1 className="hero-title">
           Có đội Marketing &amp; IT riêng,<br />
           <span className="text-gradient">mà không cần trả lương cả năm.</span>
