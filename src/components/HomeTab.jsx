@@ -1,8 +1,11 @@
 import React from "react";
+import CaseStudiesSection from "./CaseStudiesSection";
+import TrendsSection from "./TrendsSection";
 
 /**
  * HomeTab Component - Trang Chủ Đồng Bộ 100% Concept Website TOLUCK
  * Slogan: "Có đội Marketing & IT riêng, mà không cần trả lương cả năm."
+ * Tích hợp hình ảnh thực tế, Section Dự Án Đã Làm và Section Góc Xu Hướng
  * Strict rule: <= 500 lines
  */
 export default function HomeTab({ onNavigateTab }) {
@@ -12,6 +15,7 @@ export default function HomeTab({ onNavigateTab }) {
       badge: "Bản Quyền 100%",
       icon: "🎨",
       title: "Marketing: Thương Hiệu & Nội Dung",
+      image: "./img/pillar_branding.jpg",
       desc: "Xây dựng nhận diện thương hiệu độc bản (Logo, Font, Màu sắc, Bao bì), quản trị nội dung mạng xã hội và thiết kế ấn phẩm sales kit chuyên nghiệp.",
     },
     {
@@ -19,6 +23,7 @@ export default function HomeTab({ onNavigateTab }) {
       badge: "Ads 200Tr/th • 43M+ Views",
       icon: "📢",
       title: "Marketing: Tăng Trưởng & Sự Kiện",
+      image: "./img/pillar_growth.jpg",
       desc: "Quảng cáo đa kênh (Meta, Google, TikTok), SEO/SEM & Entity AIO, tổ chức sự kiện quy mô lớn và quản lý truyền thông chuyển đổi cao.",
     },
     {
@@ -26,6 +31,7 @@ export default function HomeTab({ onNavigateTab }) {
       badge: "Tải < 1.5s • >10K CCU",
       icon: "💻",
       title: "Công Nghệ: Website Chuẩn SEO & CRM",
+      image: "./img/pillar_tech.jpg",
       desc: "Thiết kế Website chuẩn SEO không dùng template dựng sẵn, Landing Page theo chiến dịch và hệ thống CRM quản trị khách hàng VIP online.",
     },
     {
@@ -33,6 +39,7 @@ export default function HomeTab({ onNavigateTab }) {
       badge: "Automation 24/7",
       icon: "⚙️",
       title: "Chuyển Đổi Số: Tự Động Hóa n8n & AI",
+      image: "./img/pillar_ai.jpg",
       desc: "Tự động hóa luồng dữ liệu Web ➔ CRM ➔ Zalo ➔ Email với n8n webhooks, tích hợp AI Chatbot chăm sóc và chốt hẹn khách hàng 24/7.",
     },
   ];
@@ -78,7 +85,7 @@ export default function HomeTab({ onNavigateTab }) {
           </button>
         </div>
 
-        {/* Verified Authority Metrics Strip (4 số liệu chính thức của website) */}
+        {/* Verified Authority Metrics Strip */}
         <div className="stats-row">
           <div className="stat-card">
             <div className="stat-value">200+</div>
@@ -95,7 +102,7 @@ export default function HomeTab({ onNavigateTab }) {
         </div>
       </section>
 
-      {/* 4 Trụ Cột Dịch Vụ Cốt Lõi */}
+      {/* 4 Trụ Cột Dịch Vụ Cốt Lõi với Hình Ảnh Minh Họa */}
       <section className="section-block">
         <div className="section-header">
           <span className="section-kicker">NĂNG LỰC TRIỂN KHAI</span>
@@ -106,16 +113,33 @@ export default function HomeTab({ onNavigateTab }) {
         <div className="pillars-grid">
           {pillars.map((item) => (
             <div key={item.num} className="pillar-card">
-              <div className="pillar-top">
-                <span className="pillar-icon">{item.icon}</span>
+              <div className="pillar-img-box">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="pillar-img"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = "./hero_banner.jpg";
+                  }}
+                />
                 <span className="pillar-badge">{item.badge}</span>
+                <span className="pillar-icon-float">{item.icon}</span>
               </div>
-              <h3 className="pillar-title">{item.title}</h3>
-              <p className="pillar-desc">{item.desc}</p>
+              <div className="pillar-body">
+                <h3 className="pillar-title">{item.title}</h3>
+                <p className="pillar-desc">{item.desc}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
+
+      {/* Section 1: Các Dự Án Đã Làm */}
+      <CaseStudiesSection onNavigateTab={onNavigateTab} />
+
+      {/* Section 2: Góc Xu Hướng 2026-2028 */}
+      <TrendsSection onNavigateTab={onNavigateTab} />
 
       {/* Câu Chuyện Đồng Hành */}
       <section className="section-block story-block">
