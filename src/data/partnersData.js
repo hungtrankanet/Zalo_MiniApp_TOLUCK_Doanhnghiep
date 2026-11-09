@@ -19,6 +19,8 @@ export const PARTNERS_DATA = [
     collaboration: "Phát triển nền tảng công nghệ, vận hành máy chủ và bảo trì hệ thống toàn diện.",
     year: "2023 - 2026",
     badge: "Top 1 SportTech",
+    isPortalClient: true,
+    portalUrl: "https://vsports.vn",
   },
   {
     id: "suntrans",
@@ -34,6 +36,8 @@ export const PARTNERS_DATA = [
     collaboration: "Tư vấn chuyển đổi số quy trình vận hành, giải pháp website & cổng tra cứu vận đơn.",
     year: "2022 - 2026",
     badge: "Global Logistics",
+    isPortalClient: true,
+    portalUrl: "https://suntrans.vn",
   },
   {
     id: "wservice",
@@ -49,6 +53,8 @@ export const PARTNERS_DATA = [
     collaboration: "Thiết kế kiến trúc CRM đa kênh, tích hợp thanh toán và cổng quản trị thành viên số.",
     year: "2023 - 2026",
     badge: "Omni Loyalty",
+    isPortalClient: true,
+    portalUrl: "https://wservice.vn",
   },
   {
     id: "kinggold",
@@ -64,6 +70,8 @@ export const PARTNERS_DATA = [
     collaboration: "Xây dựng chiến lược tiếp thị số, bộ nhận diện ấn phẩm cao cấp và quảng cáo Meta/Google Ads.",
     year: "2024 - 2026",
     badge: "Gold Luxury",
+    isPortalClient: true,
+    portalUrl: "https://kinggoldart.vn",
   },
   {
     id: "anna",
@@ -79,6 +87,7 @@ export const PARTNERS_DATA = [
     collaboration: "Sản xuất video ngắn TikTok triệu view, tối ưu SEO thực thể thương hiệu và chiến dịch bán hàng đa kênh.",
     year: "2024 - 2026",
     badge: "Retail Leader",
+    isPortalClient: false,
   },
   {
     id: "wlin",
@@ -94,6 +103,8 @@ export const PARTNERS_DATA = [
     collaboration: "Truyền thông sự kiện vinh danh quốc tế, thiết kế bộ nhận diện thương hiệu số độc bản.",
     year: "2023 - 2026",
     badge: "Global Network",
+    isPortalClient: true,
+    portalUrl: "https://wlin.com.vn",
   },
   {
     id: "bsin",
@@ -109,6 +120,7 @@ export const PARTNERS_DATA = [
     collaboration: "Quản trị truyền thông đối ngoại, xuất bản ấn phẩm số và xây dựng cổng bình chọn doanh nhân.",
     year: "2023 - 2026",
     badge: "B2B Leaders",
+    isPortalClient: false,
   },
   {
     id: "tuibao",
@@ -124,6 +136,8 @@ export const PARTNERS_DATA = [
     collaboration: "Chuyển đổi số quy trình đặt hàng qua QR Code, tự động hóa luồng thông báo tiến độ sản xuất.",
     year: "2024 - 2026",
     badge: "Green Pack",
+    isPortalClient: true,
+    portalUrl: "https://tuibao.vn",
   },
   {
     id: "kantek",
@@ -139,6 +153,7 @@ export const PARTNERS_DATA = [
     collaboration: "Thực thi chiến dịch Performance Ads đa kênh nhắm mục tiêu cộng đồng doanh nghiệp tại Bắc Mỹ.",
     year: "2024 - 2026",
     badge: "US Market",
+    isPortalClient: false,
   },
   {
     id: "aio",
@@ -154,28 +169,6 @@ export const PARTNERS_DATA = [
     collaboration: "Tích hợp API kết nối quản trị kho với hệ thống bán hàng đa sàn và n8n webhook tự động.",
     year: "2025 - 2026",
     badge: "Smart WMS",
-  },
-];
-
-export const COMMUNITY_BENEFITS = [
-  {
-    icon: "🤝",
-    title: "Kết Nối Giao Thương B2B Chéo",
-    desc: "Ưu tiên giới thiệu và sử dụng dịch vụ chéo giữa hơn 200+ doanh nghiệp trong hệ sinh thái TOLUCK với mức chiết khấu độc quyền.",
-  },
-  {
-    icon: "⚡",
-    title: "Đặc Quyền Công Nghệ & Marketing",
-    desc: "Được hỗ trợ kỹ thuật 24/7, ưu tiên cập nhật các module AI Chatbot và công cụ tự động hóa mới nhất trước khi thương mại hóa.",
-  },
-  {
-    icon: "📈",
-    title: "Chia Sẻ Tri Thức & Xu Hướng",
-    desc: "Tham gia các buổi hội thảo kín bàn tròn doanh nhân, nhận các báo cáo phân tích thị trường và giải pháp tối ưu chi phí định kỳ.",
-  },
-  {
-    icon: "🛡️",
-    title: "Bảo Chứng Thương Hiệu & Bản Quyền",
-    desc: "100% đối tác được kiểm duyệt năng lực thực tế, cam kết hợp tác minh bạch, bảo vệ quyền lợi thương mại và bí mật kinh doanh.",
+    isPortalClient: false,
   },
 ];

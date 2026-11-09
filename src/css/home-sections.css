@@ -1,0 +1,375 @@
+/* ==========================================================================
+   TOLUCK SAAS 2026 - Home Sections & Marquee Stylesheet
+   Pure Bright Canvas • 8 Sections Layout • Infinite Slider
+   Strict rule: <= 500 lines
+   ========================================================================== */
+
+/* 1. Hero Visual Strip (2-3 Hình Ảnh Trực Quan) */
+.hero-visual-strip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin: 16px 0 18px;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+.hero-visual-strip::-webkit-scrollbar { display: none; }
+.hero-visual-thumb-wrap {
+  flex: 0 0 78%;
+  max-width: 280px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px -4px rgba(15, 23, 42, 0.06);
+  position: relative;
+}
+.hero-visual-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.hero-visual-caption {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #334155;
+  padding: 6px 10px;
+  background: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 2. Infinite Marquee Slider 2 Rows (Logo Đối Tác & Khách Hàng) */
+.partner-marquee-section {
+  margin: 20px 0 24px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: 18px 0 16px;
+  box-shadow: 0 6px 20px -4px rgba(15, 23, 42, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+.marquee-header-wrap { text-align: center; padding: 0 16px 12px; }
+.marquee-kicker {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #059669;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 3px;
+}
+.marquee-title {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.35;
+}
+.marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.marquee-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 36px;
+  z-index: 3;
+  pointer-events: none;
+}
+.marquee-fade-left { left: 0; background: linear-gradient(to right, #ffffff, transparent); }
+.marquee-fade-right { right: 0; background: linear-gradient(to left, #ffffff, transparent); }
+.marquee-track-wrapper { overflow: hidden; display: flex; }
+.mt-2 { margin-top: 10px; }
+
+.marquee-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  will-change: transform;
+}
+.marquee-slide-left { animation: marqueeLeft 28s linear infinite; }
+.marquee-slide-right { animation: marqueeRight 28s linear infinite; }
+.marquee-container:hover .marquee-track,
+.marquee-container:active .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeLeft {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes marqueeRight {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.marquee-item-card {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.marquee-item-card:active { background: #f1f5f9; transform: scale(0.97); }
+.marquee-item-info { display: flex; flex-direction: column; }
+.marquee-item-name { font-size: 12px; font-weight: 800; color: #0f172a; }
+.marquee-item-cat { font-size: 10px; color: #64748b; }
+
+/* 3. Core Services (3 Dịch Vụ Chính) */
+.core-services-section { margin-top: 20px; }
+.core-services-list { display: flex; flex-direction: column; gap: 16px; }
+.core-service-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.05);
+}
+.core-svc-img-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+  overflow: hidden;
+}
+.core-svc-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.core-svc-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(15, 23, 42, 0.8);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+.core-svc-num {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 26px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: -1px;
+}
+.core-svc-body { padding: 16px; }
+.core-svc-title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.core-svc-icon { font-size: 20px; }
+.core-svc-title { font-size: 16px; font-weight: 800; color: #0f172a; line-height: 1.35; }
+.core-svc-desc { font-size: 13px; color: #64748b; line-height: 1.5; margin-bottom: 12px; }
+.core-svc-bullets { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.core-svc-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12px;
+  color: #334155;
+  font-weight: 600;
+}
+.bullet-check { color: #059669; font-weight: 900; }
+.core-svc-cta {
+  width: 100%;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #059669;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.all-services-link-box { margin-top: 14px; }
+
+/* 4. Target Audience (Đối Tượng Khách Hàng Tiềm Năng) */
+.target-audience-section { margin-top: 20px; }
+.audience-grid { display: flex; flex-direction: column; gap: 12px; }
+.audience-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+}
+.audience-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.audience-icon { font-size: 22px; }
+.audience-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #bfdbfe;
+}
+.audience-title { font-size: 14.5px; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
+.audience-desc { font-size: 12.5px; color: #64748b; line-height: 1.45; margin-bottom: 10px; }
+.audience-points {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.point-row { font-size: 11.5px; line-height: 1.4; }
+.point-row.pain .point-label { color: #dc2626; font-weight: 700; margin-right: 4px; }
+.point-row.pain .point-text { color: #475569; }
+.point-row.sol .point-label { color: #059669; font-weight: 700; margin-right: 4px; }
+.point-row.sol .point-text { color: #0f172a; font-weight: 600; }
+.audience-action-box {
+  margin-top: 14px;
+  text-align: center;
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px dashed #cbd5e1;
+}
+.audience-action-text { font-size: 12.5px; font-weight: 700; color: #334155; margin-bottom: 8px; }
+
+/* 5. Process Workflow (Quy Trình 4 Bước) */
+.process-workflow-section { margin-top: 20px; }
+.process-timeline { display: flex; flex-direction: column; gap: 12px; }
+.process-step-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+  position: relative;
+}
+.step-badge-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #059669, #047857);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-time { font-size: 11px; font-weight: 700; color: #64748b; }
+.step-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #059669;
+  background: #f0fdf4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: auto;
+}
+.step-title { font-size: 15px; font-weight: 800; color: #0f172a; margin-bottom: 6px; }
+.step-desc { font-size: 12.5px; color: #64748b; line-height: 1.5; margin-bottom: 10px; }
+.step-checklist { display: flex; flex-direction: column; gap: 4px; }
+.step-check-item { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: #334155; }
+.step-check-icon { color: #059669; font-weight: 900; }
+
+/* 6. Testimonials (Khách Hàng Nói Gì) */
+.testimonials-section { margin-top: 20px; }
+.testimonials-cards-list { display: flex; flex-direction: column; gap: 12px; }
+.testimonial-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+}
+.testimonial-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.testimonial-author-info { flex: 1; min-width: 0; }
+.author-name { font-size: 14px; font-weight: 800; color: #0f172a; margin-bottom: 1px; }
+.author-role { font-size: 11px; color: #64748b; }
+.author-company { font-size: 11px; font-weight: 700; color: #059669; }
+.testimonial-stars { color: #f59e0b; font-size: 13px; letter-spacing: 1px; }
+.testimonial-highlight-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #047857;
+  background: #ecfdf5;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.testimonial-quote { font-size: 12.5px; color: #475569; line-height: 1.55; font-style: italic; }
+
+/* 7. Portal Client Styles (Khách Hàng Cổng Thu) */
+.portal-client-badge {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #b45309;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  padding: 2px 7px;
+  border-radius: 999px;
+  letter-spacing: 0.3px;
+}
+.member-portal-highlight {
+  border-color: #fde68a;
+  background: linear-gradient(180deg, #ffffff, #fffdfa);
+}
+.btn-portal-redirect {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.25);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn-portal-redirect:active { transform: scale(0.96); }
+.portal-client-info-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 14px 0;
+  text-align: left;
+}
+.portal-info-title { font-size: 13px; font-weight: 800; color: #92400e; margin-bottom: 3px; }
+.portal-info-desc { font-size: 12px; color: #b45309; line-height: 1.45; }
+.portal-badge-banner {
+  display: inline-block;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
