@@ -1,7 +1,8 @@
 import React from "react";
 
 /**
- * HomeTab Component - Trang Chủ & Giới Thiệu Năng Lực TOLUCK
+ * HomeTab Component - Trang Chủ Đồng Bộ 100% Concept Website TOLUCK
+ * Slogan: "Có đội Marketing & IT riêng, mà không cần trả lương cả năm."
  * Strict rule: <= 500 lines
  */
 export default function HomeTab({ onNavigateTab }) {
@@ -10,36 +11,36 @@ export default function HomeTab({ onNavigateTab }) {
       num: "01",
       badge: "Bản Quyền 100%",
       icon: "🎨",
-      title: "Branding & Nhận Diện Bản Sắc",
-      desc: "Thiết kế Logo, Brand Guidelines, ấn phẩm tiếp thị số. Bàn giao 100% file gốc vector độc quyền.",
+      title: "Marketing: Thương Hiệu & Nội Dung",
+      desc: "Xây dựng nhận diện thương hiệu độc bản (Logo, Font, Màu sắc, Bao bì), quản trị nội dung mạng xã hội và thiết kế ấn phẩm sales kit chuyên nghiệp.",
     },
     {
       num: "02",
-      badge: "Tải < 1.5s • >10K CCU",
-      icon: "💻",
-      title: "Thiết Kế Website Chịu Tải Cao",
-      desc: "Hạ tầng Docker, Redis Caching, chống DDoS, chuẩn SEO Google và tối ưu cho cụm cân bằng tải.",
+      badge: "Ads 200Tr/th • 43M+ Views",
+      icon: "📢",
+      title: "Marketing: Tăng Trưởng & Sự Kiện",
+      desc: "Quảng cáo đa kênh (Meta, Google, TikTok), SEO/SEM & Entity AIO, tổ chức sự kiện quy mô lớn và quản lý truyền thông chuyển đổi cao.",
     },
     {
       num: "03",
-      badge: "Tối Ưu Ngân Sách Ads",
-      icon: "📢",
-      title: "Quản Trị Social & Quảng Cáo Đa Kênh",
-      desc: "Sáng tạo nội dung thu hút, sản xuất video ngắn TikTok/Reels triệu view, chạy Facebook Ads & Google Ads.",
+      badge: "Tải < 1.5s • >10K CCU",
+      icon: "💻",
+      title: "Công Nghệ: Website Chuẩn SEO & CRM",
+      desc: "Thiết kế Website chuẩn SEO không dùng template dựng sẵn, Landing Page theo chiến dịch và hệ thống CRM quản trị khách hàng VIP online.",
     },
     {
       num: "04",
       badge: "Automation 24/7",
       icon: "⚙️",
-      title: "Tự Động Hóa n8n & Email SAAS",
-      desc: "Tích hợp luồng webhook n8n tự động hóa phân loại khách hàng, đồng bộ CRM và gửi email chăm sóc 24/7.",
+      title: "Chuyển Đổi Số: Tự Động Hóa n8n & AI",
+      desc: "Tự động hóa luồng dữ liệu Web ➔ CRM ➔ Zalo ➔ Email với n8n webhooks, tích hợp AI Chatbot chăm sóc và chốt hẹn khách hàng 24/7.",
     },
   ];
 
   const partners = [
     { name: "SunTrans Logistics", tag: "Logistics Quốc Tế" },
     { name: "King Gold Art", tag: "Quà Tặng Vàng Cao Cấp" },
-    { name: "Kính Mắt Anna", tag: "Hệ Thống Bán Lẻ" },
+    { name: "Kính Mắt Anna", tag: "Chuỗi Bán Lẻ Toàn Quốc" },
     { name: "VSports Platform", tag: "250K+ Người Dùng" },
     { name: "WService Ecosystem", tag: "200+ Doanh Nghiệp" },
   ];
@@ -50,14 +51,14 @@ export default function HomeTab({ onNavigateTab }) {
       <section className="hero-banner">
         <div className="hero-badge">
           <span className="pulse-dot" />
-          <span>HỒ SƠ NĂNG LỰC TOLUCK 2026</span>
+          <span>PHÒNG MARKETING THUÊ NGOÀI CHIẾN LƯỢC</span>
         </div>
         <h1 className="hero-title">
-          Công Nghệ Tạo Nền Tảng.<br />
-          <span className="text-gradient">Marketing Tạo Tăng Trưởng.</span>
+          Có đội Marketing &amp; IT riêng,<br />
+          <span className="text-gradient">mà không cần trả lương cả năm.</span>
         </h1>
         <p className="hero-subtitle">
-          TOLUCK đồng hành cùng doanh nghiệp từ kiến tạo bản sắc thương hiệu đến vận hành hệ sinh thái công nghệ chịu tải lớn.
+          TOLUCK đồng hành cùng doanh nghiệp vừa và nhỏ từ thương hiệu, nội dung, công nghệ đến tự động hoá — một đội ngũ duy nhất, vận hành như phòng ban nội bộ của bạn.
         </p>
 
         <div className="hero-actions">
@@ -77,19 +78,19 @@ export default function HomeTab({ onNavigateTab }) {
           </button>
         </div>
 
-        {/* Stats Row */}
+        {/* Verified Authority Metrics Strip (4 số liệu chính thức của website) */}
         <div className="stats-row">
           <div className="stat-card">
-            <div className="stat-value">250K+</div>
-            <div className="stat-label">User Hoạt Động</div>
-          </div>
-          <div className="stat-card">
-            <div className="stat-value">43M+</div>
-            <div className="stat-label">Lượt Tiếp Cận</div>
-          </div>
-          <div className="stat-card">
             <div className="stat-value">200+</div>
-            <div className="stat-label">Doanh Nghiệp</div>
+            <div className="stat-label">Khách Hàng Hài Lòng</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-value">1.000+</div>
+            <div className="stat-label">Chiến Dịch Thành Công</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-value">15+ Năm</div>
+            <div className="stat-label">Thực Chiến Chuyên Sâu</div>
           </div>
         </div>
       </section>
@@ -97,8 +98,8 @@ export default function HomeTab({ onNavigateTab }) {
       {/* 4 Trụ Cột Dịch Vụ Cốt Lõi */}
       <section className="section-block">
         <div className="section-header">
-          <span className="section-kicker">GIẢI PHÁP TĂNG TRƯỞNG</span>
-          <h2 className="section-heading">4 Trụ Cột Giải Pháp Cốt Lõi</h2>
+          <span className="section-kicker">NĂNG LỰC TRIỂN KHAI</span>
+          <h2 className="section-heading">4 Nhóm Giải Pháp Cốt Lõi</h2>
           <p className="section-desc">Hợp nhất tư duy công nghệ vững chắc với chiến lược tiếp thị thực thi sắc bén.</p>
         </div>
 
@@ -122,7 +123,7 @@ export default function HomeTab({ onNavigateTab }) {
           <div className="story-tag">CÂU CHUYỆN ĐỒNG HÀNH</div>
           <h3 className="story-title">Từ Zero Đến Cơ Hội Bứt Phá</h3>
           <p className="story-desc">
-            TOLUCK không chỉ cung cấp dịch vụ đơn lẻ, chúng tôi đóng vai trò là "Phòng Marketing & Công Nghệ Thuê Ngoài", trực tiếp đồng hành cùng ban lãnh đạo doanh nghiệp tháo gỡ từng điểm nghẽn chuyển đổi số và tiếp thị đa kênh.
+            TOLUCK không chỉ cung cấp dịch vụ đơn lẻ, chúng tôi đóng vai trò là "Phòng Marketing &amp; Công Nghệ Thuê Ngoài", trực tiếp đồng hành cùng ban lãnh đạo doanh nghiệp tháo gỡ từng điểm nghẽn chuyển đổi số và tiếp thị đa kênh.
           </p>
           <div className="story-footer">
             <div className="story-quote">"Chúng tôi cam kết số liệu thật, chuyển đổi thật và hiệu quả bền vững."</div>
@@ -133,8 +134,8 @@ export default function HomeTab({ onNavigateTab }) {
       {/* Logo Đối Tác & Khách Hàng */}
       <section className="section-block partners-block">
         <div className="section-header">
-          <span className="section-kicker">TÍN NHIỆM & HỢP TÁC</span>
-          <h2 className="section-heading">Đối Tác & Khách Hàng Tiêu Biểu</h2>
+          <span className="section-kicker">TÍN NHIỆM &amp; HỢP TÁC</span>
+          <h2 className="section-heading">Đối Tác &amp; Khách Hàng Tiêu Biểu</h2>
         </div>
 
         <div className="partners-list">

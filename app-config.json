@@ -2,8 +2,8 @@
   "app": {
     "title": "TOLUCK - Marketing & Công Nghệ",
     "headerTitle": "TOLUCK",
-    "headerColor": "#071B15",
-    "textColor": "white",
+    "headerColor": "#ffffff",
+    "textColor": "black",
     "statusBar": "normal",
     "actionBarHidden": false,
     "leftButton": "back",
@@ -15,10 +15,10 @@
     "pages/index/index"
   ],
   "listCSS": [
-    "assets/index-D7jrSnlL.css"
+    "assets/index-B4Cgnxcp.css"
   ],
   "listSyncJS": [
-    "assets/index.CPHRefC-.module.js"
+    "assets/index.C7DTfLWm.module.js"
   ],
   "listAsyncJS": []
 }

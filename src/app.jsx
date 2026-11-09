@@ -29,8 +29,8 @@ export default function App() {
         title: "TOLUCK - Marketing & Công Nghệ",
       });
       setNavigationBarColor({
-        color: "#071B15",
-        textColor: "white",
+        color: "#ffffff",
+        textColor: "black",
       });
     } catch (e) {
       // Simulator fallback

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TOLUCK SAAS 2026 - Modern 4-Tab Bottom Navigation Bar
+   TOLUCK SAAS 2026 - Pure Bright Canvas Bottom Navigation Bar
    Strict rule: <= 500 lines
    ========================================================================== */
 
@@ -9,13 +9,13 @@
   left: 0;
   right: 0;
   z-index: 999;
-  background: rgba(7, 27, 21, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(24, 165, 88, 0.25);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid #e2e8f0;
   padding-bottom: max(env(safe-area-inset-bottom, 0px), 8px);
   padding-top: 6px;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.06);
 }
 
 .bottom-nav-grid {
@@ -37,9 +37,9 @@
   border: none;
   padding: 6px 2px;
   cursor: pointer;
-  color: #94a3b8;
+  color: #64748b;
   position: relative;
-  transition: color 0.2s ease, transform 0.15s ease;
+  transition: all 0.2s ease;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -49,7 +49,7 @@
 }
 
 .bottom-nav-item.active {
-  color: #10b981;
+  color: #059669;
 }
 
 .nav-icon-wrapper {
@@ -64,20 +64,20 @@
   position: absolute;
   top: -4px;
   right: -10px;
-  background: #ef4444;
+  background: #ea580c;
   color: #ffffff;
   font-size: 8px;
   font-weight: 800;
-  padding: 1px 4px;
+  padding: 1px 5px;
   border-radius: 999px;
   letter-spacing: 0.2px;
-  box-shadow: 0 1px 3px rgba(239, 68, 68, 0.5);
+  box-shadow: 0 2px 4px rgba(234, 88, 12, 0.3);
   text-transform: uppercase;
 }
 
 .nav-label {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.1px;
   white-space: nowrap;
 }
@@ -87,7 +87,7 @@
   top: 0;
   width: 24px;
   height: 3px;
-  background: #10b981;
+  background: #059669;
   border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.8);
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.5);
 }
