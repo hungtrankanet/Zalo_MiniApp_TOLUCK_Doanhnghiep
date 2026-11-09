@@ -11,12 +11,10 @@
     "hideAndroidBottomNavigationBar": false,
     "hideIOSSafeAreaBottom": false
   },
-  "pages": [],
+  "pages": [
+    "pages/index/index"
+  ],
   "listCSS": [],
   "listSyncJS": [],
-  "listAsyncJS": [],
-  "template": {
-    "name": "toluck-zmp-enterprise",
-    "primaryColor": "#18A558"
-  }
+  "listAsyncJS": []
 }
