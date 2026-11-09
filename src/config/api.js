@@ -12,6 +12,8 @@ export const ENDPOINTS = {
   news: `${API_BASE_URL}/api/news`,
   settings: `${API_BASE_URL}/api/settings`,
   contact: `${API_BASE_URL}/api/contact`,
+  testimonials: `${API_BASE_URL}/api/testimonials`,
+  partnerLogos: `${API_BASE_URL}/api/partner-logos`,
 };
 
 export const CONTACT_INFO = {
@@ -134,5 +136,96 @@ export async function submitConsultation(payload) {
       fallback: true,
       message: "Yêu cầu tư vấn đã được tiếp nhận. Chuyên viên TOLUCK sẽ liên hệ trong 15 phút.",
     };
+  }
+}
+
+export const FALLBACK_TESTIMONIALS = [
+  {
+    id: "vsports",
+    name: "Anh Nguyễn Văn Nam",
+    role: "CEO",
+    company: "VSports.com.vn (250.000+ Vận động viên)",
+    avatar: "NVN",
+    avatar_bg: "#2563eb",
+    rating: 5,
+    highlight: "Chiến dịch 43M views • Chịu tải cao",
+    quote:
+      "Tìm kiếm một đội ngũ vừa am hiểu sâu kiến trúc phần mềm, vừa có năng lực triển khai chiến dịch truyền thông đa kênh đạt hơn 43 triệu view như TOLUCK là điều vô cùng hiếm hoi. Họ vận hành ăn ý như những người co-founder của chúng tôi.",
+  },
+  {
+    id: "wlin_bsin",
+    name: "Chị Trần Thu Hương",
+    role: "Ban Điều Hành",
+    company: "Mạng Lưới Doanh Nhân WLIN/BSIN",
+    avatar: "TTH",
+    avatar_bg: "#ea580c",
+    rating: 5,
+    highlight: "2 mùa vinh danh liên tiếp • Tăng giá trị tài trợ",
+    quote:
+      "TOLUCK đã đồng hành cùng chúng tôi suốt 2 mùa vinh danh liên tiếp. Sự minh bạch trong báo cáo số liệu và tính sáng tạo không rập khuôn trong từng ấn phẩm, sự kiện đã giúp giá trị gói tài trợ của mạng lưới tăng trưởng rõ rệt.",
+  },
+  {
+    id: "kantek",
+    name: "Anh David Lê",
+    role: "Giám đốc Điều hành",
+    company: "KANTEK Global (California, USA)",
+    avatar: "DL",
+    avatar_bg: "#059669",
+    rating: 5,
+    highlight: "ROAS x3.8 • Giảm 35% chi phí lead thị trường Mỹ",
+    quote:
+      "Với chi phí quảng cáo đắt đỏ tại Mỹ, đội ngũ Marketing & CRM của TOLUCK đã tối ưu tỷ suất lợi nhuận ROAS x3.8 và giảm 35% chi phí lead. Hệ thống tự động CSKH hoạt động xuyên múi giờ rất mượt mà.",
+  },
+  {
+    id: "fb_saigon",
+    name: "Chị Lê Hoàng Mai",
+    role: "Co-Founder",
+    company: "Chuỗi Khách sạn & Ẩm thực Sài Gòn",
+    avatar: "LHM",
+    avatar_bg: "#7c3aed",
+    rating: 5,
+    highlight: "Tiết kiệm 50% chi phí • Vận hành trọn gói",
+    quote:
+      "Hợp tác cùng TOLUCK giúp chúng tôi có trọn vẹn cả phòng Marketing và IT chất lượng cao mà chi phí chỉ bằng một nửa so với việc tự xây dựng và quản trị nhân sự in-house rời rạc. Rất hài lòng và an tâm!",
+  },
+];
+
+export async function fetchTestimonials() {
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 4000);
+    const response = await fetch(ENDPOINTS.testimonials, {
+      signal: controller.signal,
+      headers: { Accept: "application/json" },
+    });
+    clearTimeout(timeoutId);
+    if (!response.ok) throw new Error("HTTP error " + response.status);
+    const json = await response.json();
+    if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+      return json.data;
+    }
+    return FALLBACK_TESTIMONIALS;
+  } catch (err) {
+    return FALLBACK_TESTIMONIALS;
+  }
+}
+
+export async function fetchPartnerLogos() {
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 4000);
+    const response = await fetch(ENDPOINTS.partnerLogos, {
+      signal: controller.signal,
+      headers: { Accept: "application/json" },
+    });
+    clearTimeout(timeoutId);
+    if (!response.ok) throw new Error("HTTP error " + response.status);
+    const json = await response.json();
+    if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+      return json.data;
+    }
+    return [];
+  } catch (err) {
+    return [];
   }
 }

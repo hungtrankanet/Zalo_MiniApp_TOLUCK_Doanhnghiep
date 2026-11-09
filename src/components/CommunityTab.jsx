@@ -1,18 +1,76 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PARTNERS_DATA } from "../data/partnersData";
+import { fetchPartnerLogos } from "../config/api";
 import PartnerLogoMark from "./PartnerLogoMark";
 
 /**
  * CommunityTab Component - Chỉ Show Danh Sách Đối Tác & Khách Hàng TOLUCK
- * Tích hợp chế độ "Khách Hàng Cổng Thu" kèm nút "Chuyển đến Trang riêng"
+ * Lấy logo từ Backend và tích hợp chế độ "Khách Hàng Cổng Thu" kèm nút "Chuyển đến Trang riêng"
  * Strict rule: <= 500 lines
  */
 export default function CommunityTab({ onNavigateTab }) {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedPartner, setSelectedPartner] = useState(null);
   const [portalNoticePartner, setPortalNoticePartner] = useState(null);
+  const [partnersList, setPartnersList] = useState(PARTNERS_DATA);
 
-  const filteredPartners = PARTNERS_DATA.filter((item) => {
+  useEffect(() => {
+    let isMounted = true;
+    fetchPartnerLogos().then((backendLogos) => {
+      if (!isMounted || !Array.isArray(backendLogos) || backendLogos.length === 0) return;
+
+      // Merge backend logos into partnersList
+      setPartnersList((prevList) => {
+        const updated = [...prevList];
+        const matchedTitles = new Set();
+
+        backendLogos.forEach((beLogo) => {
+          const beTitle = (beLogo.title || "").toLowerCase().trim();
+          let matched = false;
+
+          for (let i = 0; i < updated.length; i++) {
+            const pName = updated[i].name.toLowerCase();
+            const pShort = (updated[i].shortName || "").toLowerCase();
+            if (beTitle.includes(pShort) || pName.includes(beTitle) || beTitle.includes(updated[i].id)) {
+              updated[i] = { ...updated[i], image_url: beLogo.image_url };
+              matched = true;
+              matchedTitles.add(beLogo.id);
+              break;
+            }
+          }
+
+          if (!matched) {
+            // New partner logo uploaded directly from backend admin
+            updated.push({
+              id: `be-${beLogo.id}`,
+              name: beLogo.title || "Đối Tác Doanh Nghiệp",
+              shortName: beLogo.title || "Đối Tác",
+              category: "Doanh Nghiệp & Thương Hiệu",
+              type: "client",
+              typeLabel: "Khách Hàng Doanh Nghiệp",
+              logoColor: "#059669",
+              accentBg: "rgba(5, 150, 105, 0.08)",
+              highlight: "Thương Hiệu Đồng Hành",
+              desc: "Đối tác & khách hàng trong hệ sinh thái tăng trưởng doanh nghiệp TOLUCK.",
+              collaboration: "Hợp tác phát triển giải pháp tiếp thị và ứng dụng công nghệ số.",
+              year: "2024 - 2026",
+              badge: "Đối Tác Xác Thực",
+              isPortalClient: false,
+              image_url: beLogo.image_url,
+            });
+          }
+        });
+
+        return updated;
+      });
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const filteredPartners = partnersList.filter((item) => {
     if (activeFilter === "all") return true;
     if (activeFilter === "portal") return item.isPortalClient;
     if (activeFilter === "strategic") return item.type === "strategic";
@@ -71,14 +129,14 @@ export default function CommunityTab({ onNavigateTab }) {
             className={`filter-chip ${activeFilter === "all" ? "active" : ""}`}
             onClick={() => setActiveFilter("all")}
           >
-            Tất Cả ({PARTNERS_DATA.length})
+            Tất Cả ({partnersList.length})
           </button>
           <button
             type="button"
             className={`filter-chip ${activeFilter === "portal" ? "active" : ""}`}
             onClick={() => setActiveFilter("portal")}
           >
-            💎 Khách Hàng Cổng Thu ({PARTNERS_DATA.filter((p) => p.isPortalClient).length})
+            💎 Khách Hàng Cổng Thu ({partnersList.filter((p) => p.isPortalClient).length})
           </button>
           <button
             type="button"

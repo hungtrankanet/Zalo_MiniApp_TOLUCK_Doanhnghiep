@@ -1,16 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { PARTNERS_DATA } from "../data/partnersData";
+import { fetchPartnerLogos } from "../config/api";
 import PartnerLogoMark from "./PartnerLogoMark";
 
 /**
  * PartnerMarqueeSection Component - Logo Đối Tác & Khách Hàng Nằm Ngang Slide Qua 2 Dòng
- * Đặt ngay dưới Hero Banner theo yêu cầu UI/UX Pro
+ * Đồng bộ với Backend API partner_logos & vector marks
  * Strict rule: <= 500 lines
  */
 export default function PartnerMarqueeSection({ onNavigateTab }) {
-  // Chia 10 đối tác thành 2 nhóm, mỗi nhóm nhân đôi để tạo vòng lặp vô tận (Infinite Loop)
-  const row1 = PARTNERS_DATA.slice(0, 5);
-  const row2 = PARTNERS_DATA.slice(5, 10);
+  const [partners, setPartners] = useState(PARTNERS_DATA);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetchPartnerLogos().then((backendLogos) => {
+      if (!isMounted || !Array.isArray(backendLogos) || backendLogos.length === 0) return;
+
+      setPartners((prev) => {
+        const updated = [...prev];
+        backendLogos.forEach((beLogo) => {
+          const beTitle = (beLogo.title || "").toLowerCase();
+          for (let i = 0; i < updated.length; i++) {
+            const pName = updated[i].name.toLowerCase();
+            const pShort = (updated[i].shortName || "").toLowerCase();
+            if (beTitle.includes(pShort) || pName.includes(beTitle)) {
+              updated[i] = { ...updated[i], image_url: beLogo.image_url };
+              break;
+            }
+          }
+        });
+        return updated;
+      });
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const mid = Math.ceil(partners.length / 2);
+  const row1 = partners.slice(0, mid);
+  const row2 = partners.slice(mid);
 
   const row1Loop = [...row1, ...row1];
   const row2Loop = [...row2, ...row2];

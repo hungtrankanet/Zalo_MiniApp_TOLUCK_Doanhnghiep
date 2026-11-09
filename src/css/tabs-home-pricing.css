@@ -175,64 +175,23 @@
 
 .stats-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  padding-top: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  padding-top: 14px;
   border-top: 1px solid #f1f5f9;
 }
 
-.stat-card { text-align: center; }
-.stat-value { font-size: 18px; font-weight: 900; color: #059669; }
-.stat-label { font-size: 11px; color: #64748b; margin-top: 2px; font-weight: 600; }
-
-/* 4 Pillars */
-.pillars-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+.stat-card {
+  text-align: center;
+  padding: 6px 2px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #edf2f7;
 }
+.stat-value { font-size: 14px; font-weight: 800; color: #059669; line-height: 1.1; }
+.stat-label { font-size: 9.5px; color: #64748b; margin-top: 3px; font-weight: 600; line-height: 1.2; }
 
-.pillar-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
-  transition: all 0.2s ease;
-}
 
-.pillar-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.pillar-icon { font-size: 22px; }
-
-.pillar-badge {
-  font-size: 10px;
-  font-weight: 700;
-  background: #ecfdf5;
-  color: #047857;
-  border: 1px solid rgba(5, 150, 105, 0.2);
-  padding: 3px 9px;
-  border-radius: 9999px;
-}
-
-.pillar-title {
-  font-size: 15px;
-  font-weight: 800;
-  margin: 0 0 6px 0;
-  color: #0f172a;
-}
-
-.pillar-desc {
-  font-size: 13px;
-  color: #475569;
-  margin: 0;
-  line-height: 1.55;
-}
 
 /* Story Block */
 .story-card {

@@ -28,11 +28,33 @@ export default function HomeTab({ onNavigateTab }) {
 
   return (
     <div className="tab-page home-tab">
+      {/* 0. Top Brand Bar với Logo TOLUCK */}
+      <header className="home-top-bar">
+        <div className="home-brand">
+          <img
+            src="./logo.svg"
+            alt="TOLUCK"
+            className="home-brand-logo"
+            onError={(e) => {
+              e.currentTarget.src = "./logo.png";
+            }}
+          />
+          <div className="home-brand-meta">
+            <span className="home-brand-name">TOLUCK</span>
+            <span className="home-brand-tagline">Marketing &amp; Công Nghệ Số</span>
+          </div>
+        </div>
+        <div className="home-brand-badge">
+          <span className="pulse-dot" />
+          <span>Doanh Nghiệp 2026</span>
+        </div>
+      </header>
+
       {/* 1. Hero Header Banner */}
       <section className="hero-banner">
         <div className="hero-badge">
           <span className="pulse-dot" />
-          <span>PHÒNG MARKETING &amp; IT THUÊ NGOÀI CHIẾN LƯỢC</span>
+          <span>GIẢI PHÁP TĂNG TRƯỞNG DOANH NGHIỆP 2026</span>
         </div>
         <h1 className="hero-title">
           Có đội Marketing &amp; IT riêng,<br />
@@ -78,23 +100,23 @@ export default function HomeTab({ onNavigateTab }) {
           </button>
         </div>
 
-        {/* Verified Authority Metrics Strip (Đặt ngay phía dưới hình ảnh theo yêu cầu) */}
+        {/* Verified Authority Metrics Strip - Sắp xếp 4 chỉ số trên 1 dòng */}
         <div className="stats-row">
           <div className="stat-card">
             <div className="stat-value">200+</div>
-            <div className="stat-label">Khách Hàng Hài Lòng</div>
+            <div className="stat-label">Khách Hàng</div>
           </div>
           <div className="stat-card">
             <div className="stat-value">1.000+</div>
-            <div className="stat-label">Chiến Dịch Thành Công</div>
+            <div className="stat-label">Chiến Dịch</div>
           </div>
           <div className="stat-card">
             <div className="stat-value">15+ Năm</div>
-            <div className="stat-label">Thực Chiến Chuyên Sâu</div>
+            <div className="stat-label">Thực Chiến</div>
           </div>
           <div className="stat-card">
             <div className="stat-value">250K+</div>
-            <div className="stat-label">Người Dùng Nền Tảng</div>
+            <div className="stat-label">Người Dùng</div>
           </div>
         </div>
       </section>

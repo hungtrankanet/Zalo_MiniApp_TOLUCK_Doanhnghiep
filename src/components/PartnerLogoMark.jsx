@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 /**
- * PartnerLogoMark Component - Vector Brand Marks cho Đối Tác & Khách Hàng
+ * PartnerLogoMark Component - Brand Marks cho Đối Tác & Khách Hàng (Hỗ trợ Ảnh Backend & Vector)
  * Strict rule: <= 500 lines
  */
 export default function PartnerLogoMark({ partner, size = 44 }) {
-  const { id, shortName, logoColor, accentBg } = partner;
+  const [imgFailed, setImgFailed] = useState(false);
+  const {
+    id,
+    shortName,
+    name,
+    title,
+    logoColor = "#059669",
+    accentBg = "rgba(5, 150, 105, 0.08)",
+    image_url,
+    imageUrl,
+  } = partner || {};
+
+  const imgSrc = image_url || imageUrl;
 
   const renderIcon = () => {
     switch (id) {
@@ -95,9 +107,20 @@ export default function PartnerLogoMark({ partner, size = 44 }) {
         justifyContent: "center",
         flexShrink: 0,
         boxShadow: "0 2px 6px rgba(15, 23, 42, 0.04)",
+        overflow: "hidden",
       }}
     >
-      {renderIcon()}
+      {imgSrc && !imgFailed ? (
+        <img
+          src={imgSrc}
+          alt={name || title || shortName || "Logo"}
+          style={{ width: "85%", height: "85%", objectFit: "contain" }}
+          onError={() => setImgFailed(true)}
+          loading="lazy"
+        />
+      ) : (
+        renderIcon()
+      )}
     </div>
   );
 }

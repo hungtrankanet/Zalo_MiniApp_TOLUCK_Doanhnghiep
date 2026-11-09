@@ -1,59 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { fetchTestimonials, FALLBACK_TESTIMONIALS } from "../config/api";
 
 /**
  * TestimonialsSection Component - Khách Hàng Nói Gì Về Chúng Tôi
- * Lời chứng thực thực tế từ các CEO/Chủ tịch thương hiệu đối tác
+ * Đồng bộ cùng website TOLUCK và nạp dữ liệu từ Backend REST API
  * Strict rule: <= 500 lines
  */
 export default function TestimonialsSection() {
-  const testimonials = [
-    {
-      id: "vsports",
-      name: "Anh Hoàng Nam",
-      role: "Co-Founder & Giám Đốc Công Nghệ",
-      company: "VSports Platform",
-      avatarBg: "#059669",
-      rating: 5,
-      highlight: "Chịu tải >250K CCU xuất sắc",
-      quote:
-        "Kiến trúc microservices của TOLUCK chịu tải vượt bậc trong các giải đấu lớn. Hơn 250.000 người dùng truy cập và xem livestream cùng lúc mà hệ thống vẫn chạy mượt mà không hề gián đoạn.",
-    },
-    {
-      id: "suntrans",
-      name: "Ông Trần Long",
-      role: "Chủ Tịch & Tổng Giám Đốc",
-      company: "SunTrans Logistics",
-      avatarBg: "#2563eb",
-      rating: 5,
-      highlight: "Kết nối 500+ đối tác quốc tế",
-      quote:
-        "Hệ thống website và cổng tra cứu vận đơn số mà TOLUCK xây dựng đã giúp SunTrans kết nối thông suốt chuỗi cung ứng quốc tế. Đội ngũ làm việc tận tâm và giải quyết triệt để bài toán doanh nghiệp.",
-    },
-    {
-      id: "wlin",
-      name: "Bà Thu Hương",
-      role: "Chủ Tịch Sáng Lập",
-      company: "WLIN Global Network",
-      avatarBg: "#e11d48",
-      rating: 5,
-      highlight: "Nhận diện thương hiệu độc bản",
-      quote:
-        "TOLUCK đã nâng tầm toàn diện bộ nhận diện số và truyền thông các sự kiện vinh danh của chúng tôi. Tính thẩm mỹ cao, tốc độ xử lý nhanh và phong cách làm việc đẳng cấp quốc tế.",
-    },
-    {
-      id: "tuibao",
-      name: "Ông Đỗ Minh",
-      role: "Giám Đốc Điều Hành",
-      company: "Tuibao Packaging",
-      avatarBg: "#047857",
-      rating: 5,
-      highlight: "+68% Tỷ lệ chuyển đổi đơn hàng",
-      quote:
-        "Giải pháp số hóa tiếp nhận đơn hàng qua QR Code giúp nhà máy tăng 68% tỷ lệ chốt đơn và loại bỏ hoàn toàn sai sót thất lạc. TOLUCK thực sự là phòng công nghệ thuê ngoài số 1.",
-    },
-  ];
+  const [testimonials, setTestimonials] = useState(FALLBACK_TESTIMONIALS);
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    let isMounted = true;
+    fetchTestimonials().then((data) => {
+      if (isMounted && Array.isArray(data) && data.length > 0) {
+        setTestimonials(data);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <section className="section-block testimonials-section">
@@ -71,9 +37,9 @@ export default function TestimonialsSection() {
             <div className="testimonial-top">
               <div
                 className="testimonial-avatar"
-                style={{ backgroundColor: item.avatarBg }}
+                style={{ backgroundColor: item.avatar_bg || item.avatarBg || "#2563eb" }}
               >
-                {item.name.charAt(0)}
+                {item.avatar || item.name.charAt(0)}
               </div>
               <div className="testimonial-author-info">
                 <h4 className="author-name">{item.name}</h4>
