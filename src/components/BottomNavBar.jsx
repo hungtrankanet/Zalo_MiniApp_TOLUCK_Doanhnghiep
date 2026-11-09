@@ -31,15 +31,15 @@ export default function BottomNavBar({ activeTab, onTabChange }) {
       ),
     },
     {
-      id: "quote",
-      label: "Tính giá",
-      badge: "Hot",
+      id: "community",
+      label: "Cộng đồng",
+      badge: "VIP",
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="4" y="2" width="16" height="20" rx="2" />
-          <line x1="8" y1="6" x2="16" y2="6" />
-          <line x1="16" y1="14" x2="16" y2="18" />
-          <path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01" />
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
       ),
     },

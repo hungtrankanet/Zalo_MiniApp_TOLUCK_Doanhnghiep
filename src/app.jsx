@@ -9,6 +9,7 @@ import {
 
 import HomeTab from "./components/HomeTab";
 import PricingTab from "./components/PricingTab";
+import CommunityTab from "./components/CommunityTab";
 import QuotePortalTab from "./components/QuotePortalTab";
 import ContactTab from "./components/ContactTab";
 import BottomNavBar from "./components/BottomNavBar";
@@ -91,6 +92,10 @@ export default function App() {
 
         {activeTab === "services" && (
           <PricingTab onSelectForQuote={handleSelectServiceForQuote} />
+        )}
+
+        {activeTab === "community" && (
+          <CommunityTab onNavigateTab={handleTabChange} />
         )}
 
         {activeTab === "quote" && (

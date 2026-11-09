@@ -1,6 +1,7 @@
 import React from "react";
 import CaseStudiesSection from "./CaseStudiesSection";
 import TrendsSection from "./TrendsSection";
+import PartnersLogoSection from "./PartnersLogoSection";
 
 /**
  * HomeTab Component - Trang Chủ Đồng Bộ 100% Concept Website TOLUCK
@@ -42,14 +43,6 @@ export default function HomeTab({ onNavigateTab }) {
       image: "./img/pillar_ai.jpg",
       desc: "Tự động hóa luồng dữ liệu Web ➔ CRM ➔ Zalo ➔ Email với n8n webhooks, tích hợp AI Chatbot chăm sóc và chốt hẹn khách hàng 24/7.",
     },
-  ];
-
-  const partners = [
-    { name: "SunTrans Logistics", tag: "Logistics Quốc Tế" },
-    { name: "King Gold Art", tag: "Quà Tặng Vàng Cao Cấp" },
-    { name: "Kính Mắt Anna", tag: "Chuỗi Bán Lẻ Toàn Quốc" },
-    { name: "VSports Platform", tag: "250K+ Người Dùng" },
-    { name: "WService Ecosystem", tag: "200+ Doanh Nghiệp" },
   ];
 
   return (
@@ -155,25 +148,8 @@ export default function HomeTab({ onNavigateTab }) {
         </div>
       </section>
 
-      {/* Logo Đối Tác & Khách Hàng */}
-      <section className="section-block partners-block">
-        <div className="section-header">
-          <span className="section-kicker">TÍN NHIỆM &amp; HỢP TÁC</span>
-          <h2 className="section-heading">Đối Tác &amp; Khách Hàng Tiêu Biểu</h2>
-        </div>
-
-        <div className="partners-list">
-          {partners.map((partner, idx) => (
-            <div key={idx} className="partner-chip">
-              <span className="partner-dot">✓</span>
-              <div className="partner-info">
-                <div className="partner-name">{partner.name}</div>
-                <div className="partner-tag">{partner.tag}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Section 3: Logo Đối Tác & Khách Hàng Tiêu Biểu */}
+      <PartnersLogoSection onNavigateTab={onNavigateTab} />
 
       {/* Hotline Support Banner */}
       <section className="support-banner">
