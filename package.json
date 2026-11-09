@@ -6,8 +6,8 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
-    "deploy": "zmp-cli deploy"
+    "build": "vite build && node sync-assets.cjs",
+    "deploy": "node sync-assets.cjs && zmp-cli deploy"
   },
   "dependencies": {
     "react": "^18.2.0",

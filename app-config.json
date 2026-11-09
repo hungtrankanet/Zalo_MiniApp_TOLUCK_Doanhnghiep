@@ -14,7 +14,11 @@
   "pages": [
     "pages/index/index"
   ],
-  "listCSS": [],
-  "listSyncJS": [],
+  "listCSS": [
+    "assets/index-CUf_8qCb.css"
+  ],
+  "listSyncJS": [
+    "assets/index.Doe8vEIE.module.js"
+  ],
   "listAsyncJS": []
 }
