@@ -1,0 +1,380 @@
+/* ==========================================================================
+   TOLUCK SAAS 2026 - Styles for Tab 3 (Quote Wizard) & Tab 4 (Contact)
+   Strict rule: <= 500 lines
+   ========================================================================== */
+
+/* ── TAB 3: QUOTE PORTAL TAB (WIZARD) ── */
+.wizard-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 8px 4px;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #64748b;
+}
+.step-item.active { color: #10b981; }
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+.step-item.active .step-number {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+.step-label { font-size: 10px; font-weight: 700; }
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 8px;
+}
+
+.scale-tier-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.scale-tier-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.scale-tier-card.selected {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.scale-radio { margin-top: 2px; }
+
+.radio-dot {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #64748b;
+  position: relative;
+}
+.radio-dot.checked {
+  border-color: #10b981;
+  background: #10b981;
+}
+
+.scale-details { flex: 1; }
+
+.scale-name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.scale-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.scale-discount {
+  font-size: 10px;
+  font-weight: 800;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.scale-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+.scale-meta {
+  font-size: 11px;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Service Checklist in Step 2 */
+.service-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 75px;
+}
+
+.service-check-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+.service-check-card.checked {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.07);
+}
+
+.check-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.checkbox-mark.active {
+  background: #10b981;
+  color: #ffffff;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.check-card-info { flex: 1; }
+.check-card-title { font-size: 13px; font-weight: 700; color: #ffffff; }
+.check-card-meta { display: flex; gap: 8px; align-items: center; margin-top: 2px; }
+.check-badge { font-size: 9px; color: #10b981; background: rgba(16, 185, 129, 0.1); padding: 1px 5px; border-radius: 4px; }
+.check-price { font-size: 11px; font-weight: 700; color: #34d399; }
+
+/* Sticky Calc Bar */
+.sticky-calc-bar {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 900;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.calc-summary { display: flex; flex-direction: column; }
+.calc-count { font-size: 11px; color: #94a3b8; }
+.calc-total { font-size: 13px; color: #ffffff; }
+.calc-total span { color: #34d399; font-weight: 800; font-size: 15px; }
+.calc-actions { display: flex; gap: 8px; }
+
+.btn-outline-sm {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Step 3: Summary */
+.quote-summary-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.summary-title { font-size: 12px; font-weight: 800; color: #10b981; }
+.summary-scale { font-size: 12px; font-weight: 700; color: #ffffff; }
+
+.summary-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.summary-item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.item-name { color: #cbd5e1; flex: 1; }
+.item-price { color: #f8fafc; font-weight: 700; margin-left: 8px; }
+
+.summary-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 12px 0;
+}
+
+.summary-totals { display: flex; flex-direction: column; gap: 6px; }
+.total-row { display: flex; justify-content: space-between; font-size: 13px; }
+.total-row.discount { color: #10b981; font-weight: 600; }
+.total-row.grand-total { font-size: 15px; font-weight: 800; color: #ffffff; margin-top: 4px; padding-top: 6px; border-top: 1px dashed rgba(255, 255, 255, 0.15); }
+.highlight-price { color: #34d399; font-size: 18px; }
+.total-note { font-size: 11px; color: #94a3b8; margin-top: 4px; }
+
+.summary-guarantee-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+.guarantee-icon { font-size: 18px; }
+.guarantee-text { font-size: 11px; color: #cbd5e1; line-height: 1.5; }
+
+.wizard-bottom-bar-dual { display: flex; gap: 10px; }
+.wizard-bottom-bar-dual button { flex: 1; }
+
+/* ── TAB 4: CONTACT TAB ── */
+.attached-quote-box {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+.attached-quote-header { display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; color: #10b981; margin-bottom: 4px; }
+.remove-quote-btn { background: none; border: none; color: #ef4444; font-size: 10px; cursor: pointer; }
+.attached-quote-scale { font-size: 12px; color: #ffffff; font-weight: 600; }
+.attached-quote-total { font-size: 13px; color: #cbd5e1; margin-top: 2px; }
+.attached-quote-total strong { color: #34d399; }
+
+.zalo-phone-request-block {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.btn-zalo-phone {
+  width: 100%;
+  background: linear-gradient(135deg, #0068ff, #0052cc);
+  color: #ffffff;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 104, 255, 0.35);
+}
+.btn-zalo-phone:active { transform: scale(0.98); }
+
+.zalo-phone-hint {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 6px;
+}
+
+.contact-form-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.form-group { margin-bottom: 14px; }
+.form-label { display: block; font-size: 12px; font-weight: 600; color: #cbd5e1; margin-bottom: 6px; }
+.form-label .req { color: #ef4444; }
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+}
+.form-control:focus { border-color: #10b981; }
+
+.btn-submit-lead {
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.form-alert {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+.error-alert { background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #fca5a5; }
+
+/* Success Card */
+.success-card {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 14px;
+  padding: 24px 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.success-icon { font-size: 40px; margin-bottom: 10px; }
+.success-title { font-size: 20px; font-weight: 800; color: #ffffff; margin: 0 0 10px 0; }
+.success-desc { font-size: 13px; color: #cbd5e1; line-height: 1.6; margin: 0 0 20px 0; }
+.success-actions { display: flex; flex-direction: column; gap: 10px; }
+
+/* Office Info */
+.office-info-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 14px;
+}
+.office-title { font-size: 12px; font-weight: 800; color: #34d399; margin-bottom: 8px; }
+.office-item { display: flex; gap: 8px; font-size: 11px; color: #94a3b8; margin-bottom: 6px; line-height: 1.4; }

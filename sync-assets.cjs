@@ -2,21 +2,25 @@ const fs = require("fs");
 const path = require("path");
 
 const rootConfigPath = path.resolve(__dirname, "app-config.json");
-const wwwConfigPath = path.resolve(__dirname, "www", "app-config.json");
+const wwwDir = path.resolve(__dirname, "www");
+const wwwConfigPath = path.resolve(wwwDir, "app-config.json");
 
 if (fs.existsSync(wwwConfigPath) && fs.existsSync(rootConfigPath)) {
   const rootConfig = JSON.parse(fs.readFileSync(rootConfigPath, "utf-8"));
   const wwwConfig = JSON.parse(fs.readFileSync(wwwConfigPath, "utf-8"));
 
-  // Deduplicate array elements
-  const uniqueList = (arr) => Array.from(new Set(arr || []));
+  // Only keep files that actually exist in www/
+  const filterExisting = (arr) => {
+    const list = Array.from(new Set(arr || []));
+    return list.filter((relPath) => fs.existsSync(path.resolve(wwwDir, relPath)));
+  };
 
-  rootConfig.listCSS = uniqueList(wwwConfig.listCSS);
-  rootConfig.listSyncJS = uniqueList(wwwConfig.listSyncJS);
-  rootConfig.listAsyncJS = uniqueList(wwwConfig.listAsyncJS);
-  rootConfig.pages = uniqueList(rootConfig.pages && rootConfig.pages.length ? rootConfig.pages : ["pages/index/index"]);
+  rootConfig.listCSS = filterExisting(wwwConfig.listCSS);
+  rootConfig.listSyncJS = filterExisting(wwwConfig.listSyncJS);
+  rootConfig.listAsyncJS = filterExisting(wwwConfig.listAsyncJS);
+  rootConfig.pages = ["pages/index/index"];
 
-  // Also clean www/app-config.json to not contain duplicates
+  // Sync to www/app-config.json as well
   wwwConfig.listCSS = rootConfig.listCSS;
   wwwConfig.listSyncJS = rootConfig.listSyncJS;
   wwwConfig.listAsyncJS = rootConfig.listAsyncJS;

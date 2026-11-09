@@ -1,131 +1,93 @@
 /* ==========================================================================
-   TOLUCK SAAS 2026 - Zalo Mini App Footer & Bottom Navigation
+   TOLUCK SAAS 2026 - Modern 4-Tab Bottom Navigation Bar
    Strict rule: <= 500 lines
    ========================================================================== */
 
-.footer-wrap {
-  padding: 20px 16px 14px;
-  background: var(--slate-900);
-  color: var(--white);
-}
-
-.footer-brand-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-
-.footer-title {
-  font-size: 15px;
-  font-weight: 900;
-  color: var(--white);
-  letter-spacing: -0.5px;
-}
-
-.footer-tagline {
-  font-size: 9px;
-  font-weight: 800;
-  color: #34d399;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.footer-desc {
-  font-size: 11px;
-  color: var(--slate-400);
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-.footer-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-
-.footer-tags span {
-  background: rgba(255, 255, 255, 0.08);
-  font-size: 9px;
-  padding: 3px 6px;
-  border-radius: 4px;
-  color: var(--slate-300);
-}
-
-.footer-bottom-info {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 10px;
-  font-size: 10px;
-  color: var(--slate-400);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.bottom-nav-bar {
+.bottom-nav-container {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 500px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid var(--slate-200);
-  display: flex;
-  justify-content: space-around;
-  padding: 5px 0 max(5px, env(safe-area-inset-bottom));
+  left: 0;
+  right: 0;
   z-index: 999;
+  background: rgba(7, 27, 21, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(24, 165, 88, 0.25);
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 8px);
+  padding-top: 6px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35);
 }
 
-.nav-tab-btn {
-  background: none;
-  border: none;
+.bottom-nav-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 4px;
+}
+
+.bottom-nav-item {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  color: var(--slate-400);
-  cursor: pointer;
-  padding: 4px 6px;
-  transition: color 0.15s ease;
-}
-
-.nav-tab-btn.active {
-  color: var(--primary-emerald);
-}
-
-.nav-tab-icon {
-  font-size: 16px;
-  line-height: 1;
-}
-
-.nav-tab-label {
-  font-size: 9px;
-  font-weight: 700;
-}
-
-.footer-terms-row {
-  margin-top: 8px;
-  padding-top: 8px;
-  border-top: 1px dashed rgba(255, 255, 255, 0.15);
-  text-align: center;
-}
-
-.btn-footer-terms {
+  justify-content: center;
   background: none;
   border: none;
-  color: #34d399;
-  font-size: 11px;
-  font-weight: 700;
-  text-decoration: underline;
+  padding: 6px 2px;
   cursor: pointer;
-  padding: 4px 8px;
-  transition: opacity 0.15s ease;
+  color: #94a3b8;
+  position: relative;
+  transition: color 0.2s ease, transform 0.15s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.btn-footer-terms:active {
-  opacity: 0.7;
+.bottom-nav-item:active {
+  transform: scale(0.92);
+}
+
+.bottom-nav-item.active {
+  color: #10b981;
+}
+
+.nav-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3px;
+}
+
+.nav-badge {
+  position: absolute;
+  top: -4px;
+  right: -10px;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 999px;
+  letter-spacing: 0.2px;
+  box-shadow: 0 1px 3px rgba(239, 68, 68, 0.5);
+  text-transform: uppercase;
+}
+
+.nav-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  white-space: nowrap;
+}
+
+.active-indicator {
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 3px;
+  background: #10b981;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.8);
 }

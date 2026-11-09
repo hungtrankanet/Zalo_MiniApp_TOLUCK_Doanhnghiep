@@ -4,6 +4,6 @@
    ========================================================================== */
 
 @import "./base.css";
-@import "./components.css";
 @import "./nav.css";
-@import "./webview.css";
+@import "./tabs-home-pricing.css";
+@import "./tabs-quote-contact.css";
