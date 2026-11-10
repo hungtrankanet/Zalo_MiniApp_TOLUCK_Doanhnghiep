@@ -1,0 +1,198 @@
+/**
+ * Fund Module - Treasurer Desk & Simulator Bar Styles
+ * Compliance: RULE[user_global] <= 500 lines
+ */
+
+/* Simulator Bar (Pinned Top) */
+.fund-sim-bar {
+  background: #0f172a;
+  color: #ffffff;
+  border-bottom: 3px solid #059669;
+  padding: 8px 12px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.fund-sim-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fund-sim-tag {
+  background: #059669;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.fund-role-toggle {
+  display: flex;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.fund-role-btn {
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fund-role-btn.active {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.fund-sim-select {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  max-width: 170px;
+}
+
+.fund-sim-trigger-btn {
+  background: #d97706;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Treasurer Overview Card (MA-09) */
+.fund-treasurer-stats {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  margin: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+}
+
+.fund-stat-progress-bar {
+  background: #e2e8f0;
+  height: 10px;
+  border-radius: 9999px;
+  margin: 12px 0 8px 0;
+  overflow: hidden;
+}
+
+.fund-stat-progress-fill {
+  background: linear-gradient(90deg, #059669, #10b981);
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+.fund-quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 0 16px;
+  margin-bottom: 20px;
+}
+
+.fund-quick-action-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.1s ease;
+}
+
+.fund-quick-action-card:active {
+  transform: scale(0.98);
+}
+
+.fund-action-icon {
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.fund-action-icon.amber {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.fund-action-icon.blue {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.fund-action-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Form inputs for modals (MA-10, MA-11, MA-12) */
+.fund-form-group {
+  margin-bottom: 14px;
+}
+
+.fund-form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.fund-form-input, .fund-form-textarea, .fund-form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #0f172a;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.fund-form-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.fund-btn-full {
+  width: 100%;
+  padding: 12px;
+  background: #059669;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}

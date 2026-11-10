@@ -1,0 +1,377 @@
+/**
+ * Fund Module - Bright Canvas & Emerald UI Theme
+ * Pure CSS responsive tokens matching TOLUCK 2026 Design System
+ * Compliance: RULE[user_global] <= 500 lines
+ */
+
+/* Toast Banner */
+.fund-toast-banner {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.95);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: fadeInDown 0.25s ease-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translate(-50%, -10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Master Fund Container */
+.fund-portal-container {
+  padding-bottom: 90px;
+  background: var(--slate-50, #f8fafc);
+  min-height: 100vh;
+}
+
+/* Outstanding Balance Card (MA-01) */
+.fund-balance-card {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  margin: 16px;
+  box-shadow: 0 10px 20px -3px rgba(5, 150, 105, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.fund-balance-card::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.fund-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.fund-badge-chapter {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.fund-balance-amount {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+}
+
+.fund-balance-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.fund-btn-primary {
+  background: #ffffff;
+  color: #047857;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease;
+  flex: 1;
+}
+
+.fund-btn-primary:active {
+  transform: scale(0.97);
+}
+
+.fund-btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Section Header */
+.fund-section-header {
+  padding: 0 16px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fund-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--slate-900, #0f172a);
+}
+
+/* Obligation List & Cards (MA-02) */
+.fund-obligation-list {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fund-obligation-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s ease;
+}
+
+.fund-obligation-card.selected {
+  border-color: #059669;
+  background: #f0fdf4;
+}
+
+.fund-obligation-card.overdue {
+  border-left: 4px solid #dc2626;
+}
+
+.fund-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.fund-item-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.3;
+}
+
+.fund-status-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.fund-status-badge.unpaid { background: #f1f5f9; color: #475569; }
+.fund-status-badge.overdue { background: #fef2f2; color: #dc2626; }
+.fund-status-badge.partial { background: #eff6ff; color: #2563eb; }
+.fund-status-badge.pending { background: #fffbeb; color: #d97706; }
+.fund-status-badge.paid { background: #ecfdf5; color: #059669; }
+
+.fund-card-middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.fund-amount-due {
+  font-size: 18px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.fund-due-date {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.fund-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.fund-btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  cursor: pointer;
+}
+
+.fund-btn-small.pay {
+  background: #059669;
+  color: #ffffff;
+  border-color: #059669;
+}
+
+/* Floating Bundle Bar (MA-03) */
+.fund-bundle-bar {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 80;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.fund-bundle-total {
+  font-size: 16px;
+  font-weight: 700;
+  color: #34d399;
+}
+
+/* Modals General (MA-04, MA-05, MA-06, MA-07, MA-08) */
+.fund-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.fund-modal-sheet {
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  padding: 24px 20px 34px 20px;
+  overflow-y: auto;
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.fund-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.fund-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.fund-modal-close {
+  background: #f1f5f9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* VietQR 3-Touch Display Container */
+.fund-qr-box {
+  background: #f8fafc;
+  border: 2px dashed #059669;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.fund-qr-image {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 12px auto;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.fund-copy-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.fund-copy-item {
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fund-copy-label {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.fund-copy-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.fund-copy-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #047857;
+  cursor: pointer;
+}

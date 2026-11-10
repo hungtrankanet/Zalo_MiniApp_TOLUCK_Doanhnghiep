@@ -12,6 +12,7 @@ import PricingTab from "./components/PricingTab";
 import CommunityTab from "./components/CommunityTab";
 import QuotePortalTab from "./components/QuotePortalTab";
 import ContactTab from "./components/ContactTab";
+import FundPortalTab from "./fund/FundPortalTab";
 import BottomNavBar from "./components/BottomNavBar";
 
 /**
@@ -109,6 +110,12 @@ export default function App() {
           <ContactTab
             quoteData={attachedQuoteData}
             onResetQuote={() => setAttachedQuoteData(null)}
+          />
+        )}
+
+        {activeTab === "fund" && (
+          <FundPortalTab
+            onBackToCommunity={() => handleTabChange("community")}
           />
         )}
       </main>

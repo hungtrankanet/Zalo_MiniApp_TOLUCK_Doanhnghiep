@@ -44,6 +44,17 @@ export default function BottomNavBar({ activeTab, onTabChange }) {
       ),
     },
     {
+      id: "fund",
+      label: "Quỹ CL01",
+      badge: "Mới",
+      icon: (
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="5" width="20" height="14" rx="2" />
+          <line x1="2" y1="10" x2="22" y2="10" />
+        </svg>
+      ),
+    },
+    {
       id: "contact",
       label: "Liên hệ",
       icon: (

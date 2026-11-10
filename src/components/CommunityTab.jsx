@@ -180,7 +180,11 @@ export default function CommunityTab({ onNavigateTab }) {
                     className="btn-portal-redirect"
                     onClick={(e) => {
                       e.stopPropagation();
-                      setPortalNoticePartner(partner);
+                      if (partner.portalTab && onNavigateTab) {
+                        onNavigateTab(partner.portalTab);
+                      } else {
+                        setPortalNoticePartner(partner);
+                      }
                     }}
                   >
                     <span>🌐 Chuyển đến Trang riêng ➔</span>
@@ -245,7 +249,11 @@ export default function CommunityTab({ onNavigateTab }) {
                     onClick={() => {
                       const p = selectedPartner;
                       setSelectedPartner(null);
-                      setPortalNoticePartner(p);
+                      if (p?.portalTab && onNavigateTab) {
+                        onNavigateTab(p.portalTab);
+                      } else {
+                        setPortalNoticePartner(p);
+                      }
                     }}
                   >
                     🌐 Xem Trang Riêng &amp; Cổng Thu ➔

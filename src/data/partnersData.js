@@ -6,6 +6,24 @@
 
 export const PARTNERS_DATA = [
   {
+    id: "club_test",
+    name: "Club Test (Chapter CL01)",
+    shortName: "Club Test",
+    category: "Hội Quán & Doanh Nhân",
+    type: "strategic",
+    typeLabel: "Hội Quán Mẫu",
+    image_url: "https://toluck.com.vn/assets/themes/suntransco/img/logo-sun.png",
+    logoColor: "#059669",
+    accentBg: "rgba(5, 150, 105, 0.12)",
+    highlight: "40 Thành Viên • Quỹ 125M+ • VietQR SePay",
+    desc: "Chapter doanh nghiệp mẫu ứng dụng giải pháp Module Quỹ Hội Nhóm TOLUCK: đóng quỹ 3 chạm qua VietQR và đối soát SePay tự động 100%.",
+    collaboration: "Triển khai trọn gói Cổng Thu Quỹ Thành Viên, Bàn làm việc Thủ quỹ & Tự động hoá SePay.",
+    year: "2026",
+    badge: "Chapter Mẫu CL01",
+    isPortalClient: true,
+    portalTab: "fund",
+  },
+  {
     id: "vsports",
     name: "VSports Platform",
     shortName: "VSports",
